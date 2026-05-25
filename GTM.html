@@ -157,12 +157,16 @@ footer{margin-top:40px;padding:20px 0;border-top:1px solid var(--bd);display:fle
 footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
 
 @media (max-width:768px){
-  .mx-row{grid-template-columns:140px 1fr 1fr 1fr}
+  .cal-item{grid-template-columns:1fr;gap:10px}
+  .cal-years{flex-direction:column}
+  .cal-year{min-width:0}
+  .mtg-list{grid-template-columns:1fr}
   .rel-grid{grid-template-columns:1fr}
   .cover-stats,.cal-stats,.yoy{grid-template-columns:1fr}
   .acc-head{grid-template-columns:60px 1fr auto}
   .nm-row{grid-template-columns:1fr;gap:2px}
   .nm-co{text-align:left}
+}
 }
 </style>
 </head>
