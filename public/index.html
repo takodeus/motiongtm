@@ -181,6 +181,41 @@ nav{display:flex;overflow-x:auto}
 .carousel-dot{width:8px;height:8px;border-radius:50%;border:1px solid var(--bd);background:transparent;cursor:pointer;transition:all .15s}
 .carousel-dot.active{background:var(--ch);border-color:var(--ch)}
 
+/* pipeline section */
+.pipe-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px}
+.pipe-stat{padding:18px 20px;border:1px solid var(--bd);background:var(--wh)}
+.pipe-stat.lead{border-top:2px solid var(--ch)}
+.pipe-stat.gold{border-top:2px solid var(--go)}
+.pipe-stat .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx3);margin-bottom:8px}
+.pipe-stat .val{font-family:var(--f);font-size:36px;font-weight:300;color:var(--ch-dim);line-height:1}
+.pipe-stat.gold .val{color:var(--go-dim)}
+.pipe-stat .sub{font-size:12px;color:var(--tx3);margin-top:6px;line-height:1.55}
+.pipe-question{background:var(--ch-bg);border:1px solid var(--ch-bd);border-left:3px solid var(--ch);padding:20px 24px;margin-bottom:32px}
+.pipe-question p{font-family:var(--f);font-style:italic;font-weight:300;font-size:18px;color:var(--ch-dim);line-height:1.55;margin-bottom:0}
+.pipe-question .pq-attr{font-family:var(--s);font-style:normal;font-size:11px;letter-spacing:.08em;color:var(--tx3);margin-top:10px;font-weight:400}
+.pipe-context{font-size:14px;color:var(--tx2);line-height:1.8;font-weight:300;max-width:860px;margin-bottom:32px}
+.pipe-stage-label{font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--bdl)}
+.pipe-stage-label.contract{color:var(--aq-dim)}
+.pipe-stage-label.bant{color:var(--go-dim)}
+.pipe-deals{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px}
+.pipe-deal{padding:16px 20px;background:var(--wh);border:1px solid var(--bd);border-left:2px solid var(--aq);transition:background .15s}
+.pipe-deal:hover{background:var(--aq-bg)}
+.pipe-deal.bant{border-left-color:var(--go-bd)}
+.pipe-deal.bant:hover{background:var(--go-bg)}
+.pipe-deal-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
+.pipe-co{font-size:14px;font-weight:500;color:var(--tx)}
+.pipe-arr{font-family:var(--f);font-size:20px;font-weight:300;color:var(--aq-dim);white-space:nowrap}
+.pipe-deal.bant .pipe-arr{color:var(--go-dim)}
+.pipe-meta{display:flex;gap:12px;flex-wrap:wrap}
+.pipe-tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);padding:2px 7px;border:1px solid var(--bdl);background:var(--bg)}
+.pipe-tag.commit{color:var(--aq-dim);border-color:var(--aq-dim);background:var(--aq-bg)}
+.pipe-tag.bestcase{color:var(--go-dim);border-color:var(--go-bd);background:var(--go-bg)}
+.pipe-tag.pipeline{color:var(--tx3)}
+.pipe-deal-note{font-size:11.5px;color:var(--tx3);margin-top:7px;line-height:1.55}
+.scale-statement{margin-top:32px;padding:28px 32px;border:1px solid var(--bd);background:var(--wh);border-left:3px solid var(--ch)}
+.scale-statement p{font-family:var(--f);font-weight:300;font-size:20px;line-height:1.55;color:var(--tx);margin-bottom:12px}
+.scale-statement p:last-child{margin-bottom:0;font-size:14px;font-weight:300;font-family:var(--s);color:var(--tx2);line-height:1.8}
+
 /* closing */
 #closing{padding:56px 0 64px;border-bottom:none}
 .closing-statement{font-family:var(--f);font-weight:300;font-size:24px;line-height:1.45;color:var(--tx);max-width:820px;margin-bottom:20px}
@@ -215,6 +250,7 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
     <a class="np" href="#relationships">Relationships</a>
     <a class="np" href="#beyond">Beyond the Room</a>
     <a class="np" href="#gallery">Gallery</a>
+    <a class="np" href="#pipeline">Pipeline</a>
     <a class="np" href="#closing">Position</a>
   </nav>
 </header>
@@ -710,6 +746,194 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
   <div class="carousel-dots" id="carDots"></div>
 </section>
 
+<!-- PIPELINE -->
+<section class="section" id="pipeline">
+  <div class="kicker">The Pipeline</div>
+  <div class="section-title">Built by three. Ready to scale.</div>
+  <div class="section-sub">Every deal below was sourced, qualified, and advanced by two Sales Directors and one BDR promoted to Sales Director in January 2026. No additional headcount. No inherited book. This is what market fit looks like at the moment of constraint.</div>
+
+  <div class="pipe-hero">
+    <div class="pipe-stat lead">
+      <div class="lbl">Contract Out ARR</div>
+      <div class="val">$3.9M</div>
+      <div class="sub">Active ARR across deals already sent for signature. Commit-stage. Closing Q2&ndash;Q3 FY2026.</div>
+    </div>
+    <div class="pipe-stat lead">
+      <div class="lbl">Total Contract Value (Out)</div>
+      <div class="val">$10.7M</div>
+      <div class="sub">Total contract value across the contract-out stage, including multi-year and NRR components.</div>
+    </div>
+    <div class="pipe-stat gold">
+      <div class="lbl">BANT Pipeline ARR</div>
+      <div class="val">$2.2M</div>
+      <div class="sub">Qualified BANT-stage ARR across named institutional targets. Budget confirmed, decision authority identified.</div>
+    </div>
+    <div class="pipe-stat">
+      <div class="lbl">Sellers who built this</div>
+      <div class="val">3</div>
+      <div class="sub">Two Sales Directors + one BDR promoted in January 2026. Full pipeline built under headcount constraint.</div>
+    </div>
+  </div>
+
+  <div class="pipe-question">
+    <p>&ldquo;If we gave you 20, could you scale? If we gave you 200, could you scale?&rdquo;</p>
+    <div class="pq-attr">The question on the table &nbsp;&middot;&nbsp; Cherre&rsquo;s answer is in the numbers below</div>
+  </div>
+
+  <div class="pipe-context">Three sellers built a pipeline with a $7.5M anchor deal at GIC, a full institutional stack of asset managers and pension funds at the contract-out stage, and a BANT bench that includes Ontario Teachers&rsquo; Pension Plan, New York Life, and ICG. The constraint was never the market. It was headcount. The pipeline exists because institutional real estate has a problem Cherre solves, and the market has been waiting to be worked.</div>
+
+  <div class="pipe-stage-label contract">Contract Out &mdash; Selected Highlights</div>
+  <div class="pipe-deals">
+
+    <div class="pipe-deal">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">GIC</span>
+        <span class="pipe-arr">$2,500,000 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag commit">Commit</span>
+        <span class="pipe-tag">New &nbsp;&middot;&nbsp; Q2 FY2026</span>
+        <span class="pipe-tag">TCV $7.5M</span>
+      </div>
+      <div class="pipe-deal-note">Sovereign wealth fund. Largest single deal in the pipeline. Contract out. Change-of-control provisions flagged and under active management.</div>
+    </div>
+
+    <div class="pipe-deal">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">Almanac Realty Investors</span>
+        <span class="pipe-arr">$580,000 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag commit">Commit</span>
+        <span class="pipe-tag">New &nbsp;&middot;&nbsp; Q2 FY2026</span>
+        <span class="pipe-tag">TCV $1.76M</span>
+      </div>
+      <div class="pipe-deal-note">Private equity real estate fund of funds. Multi-year contract with NRR component. Contract out.</div>
+    </div>
+
+    <div class="pipe-deal">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">MUFG Investor Services</span>
+        <span class="pipe-arr">$217,500 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag commit">Commit</span>
+        <span class="pipe-tag">New &nbsp;&middot;&nbsp; Q3 FY2026</span>
+      </div>
+      <div class="pipe-deal-note">Global institutional fund administrator. Net new logo. Contract out.</div>
+    </div>
+
+    <div class="pipe-deal">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">UBS Asset Management</span>
+        <span class="pipe-arr">$120,000 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag commit">Commit</span>
+        <span class="pipe-tag">New &nbsp;&middot;&nbsp; Q2 FY2026</span>
+      </div>
+      <div class="pipe-deal-note">Global asset manager with significant real assets AUM. Net new. Contract out.</div>
+    </div>
+
+    <div class="pipe-deal">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">Jamestown</span>
+        <span class="pipe-arr">$30,000 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag commit">Commit</span>
+        <span class="pipe-tag">Upsell &nbsp;&middot;&nbsp; Q2 FY2026</span>
+      </div>
+      <div class="pipe-deal-note">Existing client expansion. Net new ARR on top of current book. Contract out.</div>
+    </div>
+
+    <div class="pipe-deal">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">IQ-EQ</span>
+        <span class="pipe-arr">$18,250 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag commit">Commit</span>
+        <span class="pipe-tag">New &nbsp;&middot;&nbsp; Q2 FY2026</span>
+        <span class="pipe-tag">NRR $6K</span>
+      </div>
+      <div class="pipe-deal-note">Fund administrator and investor services group. Net new logo. Contract out with NRR component.</div>
+    </div>
+
+  </div>
+
+  <div class="pipe-stage-label bant">BANT Qualified &mdash; Selected Highlights</div>
+  <div class="pipe-deals">
+
+    <div class="pipe-deal bant">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">ICG</span>
+        <span class="pipe-arr">$200,000 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag bestcase">Best Case</span>
+        <span class="pipe-tag">New &nbsp;&middot;&nbsp; Q2 FY2026</span>
+      </div>
+      <div class="pipe-deal-note">Intermediate Capital Group. European alternative asset manager with $100B+ AUM. BANT qualified, best case Q2.</div>
+    </div>
+
+    <div class="pipe-deal bant">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">Partners Enterprise Capital</span>
+        <span class="pipe-arr">$120,000 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag bestcase">Best Case</span>
+        <span class="pipe-tag">New &nbsp;&middot;&nbsp; Q2 FY2026</span>
+      </div>
+      <div class="pipe-deal-note">Institutional real estate investment firm. BANT qualified. Appears in both contract-out (small POC) and BANT pipeline.</div>
+    </div>
+
+    <div class="pipe-deal bant">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">Ontario Teachers&rsquo; Pension Plan</span>
+        <span class="pipe-arr">$74,000 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag pipeline">Pipeline</span>
+        <span class="pipe-tag">Upsell &nbsp;&middot;&nbsp; Q2 FY2026</span>
+      </div>
+      <div class="pipe-deal-note">One of the largest institutional pension funds globally with significant real assets exposure. Existing relationship, upsell opportunity in active pipeline.</div>
+    </div>
+
+    <div class="pipe-deal bant">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">New York Life Insurance</span>
+        <span class="pipe-arr">$60,000 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag pipeline">Pipeline</span>
+        <span class="pipe-tag">New &nbsp;&middot;&nbsp; Q3 FY2026</span>
+      </div>
+      <div class="pipe-deal-note">One of the largest life insurers in the US with a multi-billion dollar real estate investment portfolio. Net new logo, institutional mandate.</div>
+    </div>
+
+    <div class="pipe-deal bant">
+      <div class="pipe-deal-head">
+        <span class="pipe-co">IQ-EQ</span>
+        <span class="pipe-arr">$37,000 ARR</span>
+      </div>
+      <div class="pipe-meta">
+        <span class="pipe-tag pipeline">Pipeline</span>
+        <span class="pipe-tag">Upsell &nbsp;&middot;&nbsp; Q4 FY2026</span>
+      </div>
+      <div class="pipe-deal-note">Second expansion opportunity within IQ-EQ alongside the Q2 contract-out deal. Two parallel opportunities in the same account.</div>
+    </div>
+
+  </div>
+
+  <div class="scale-statement">
+    <p>Three sellers. Two Sales Directors and a BDR who earned the promotion in January. That team built a contract-out pipeline anchored by a $7.5M deal with a sovereign wealth fund, an upsell inside Brookfield, and new logos across European and North American institutional capital.</p>
+    <p>The BANT bench behind it includes Ontario Teachers&rsquo;, New York Life, ICG, and a dozen more names that represent exactly the institutional segment Cherre was built to serve. The pipeline was not constrained by the market. It was constrained by headcount. Give this team 20 sellers and the only question is how fast the bench converts. Give it 200 and the addressable market is the entire institutional real estate industry &mdash; which, as the calendar section of this document makes clear, already knows Cherre&rsquo;s name.</p>
+  </div>
+
+</section>
+
 <!-- CLOSING -->
 <section class="section" id="closing">
   <div class="kicker">The Position</div>
@@ -814,7 +1038,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
   }, {rootMargin:'-50px 0px -60% 0px'});
-  ['cover','matrix','the200','the30','relationships','beyond','gallery','closing'].forEach(function(id){
+  ['cover','matrix','the200','the30','relationships','beyond','gallery','pipeline','closing'].forEach(function(id){
     var el = document.getElementById(id);
     if (el) obs.observe(el);
   });
