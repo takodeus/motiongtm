@@ -114,19 +114,17 @@ nav{display:flex;overflow-x:auto}
 .cstat2 .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx3);margin-bottom:8px}
 .cstat2 .val{font-family:var(--f);font-size:32px;font-weight:300;color:var(--ch-dim);line-height:1}
 .cstat2 .sub{font-size:11px;color:var(--tx3);margin-top:6px;line-height:1.5}
-.cal-grid{border:1px solid var(--bd);background:var(--wh);margin-top:16px}
-.cal-row{display:grid;grid-template-columns:90px 1fr 1fr;border-bottom:1px solid var(--bdl)}
-.cal-row:last-child{border-bottom:none}
-.cal-row.cheader{background:#F8F6F0;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx2);font-weight:500}
-.cal-row.cheader > div{padding:12px 16px;border-right:1px solid var(--bdl)}
-.cal-time{padding:12px 16px;font-size:11px;color:var(--tx3);letter-spacing:.04em;border-right:1px solid var(--bdl);font-family:var(--s);font-weight:500}
-.cal-slot{padding:12px 16px;border-right:1px solid var(--bdl);font-size:13px;line-height:1.5}
-.cal-slot:last-child{border-right:none}
-.cal-slot.filled{background:rgba(184,52,114,.03)}
-.cal-slot strong{font-weight:500;color:var(--tx)}
-.cal-slot .ctitle{color:var(--tx3);font-size:11px;display:block;margin-top:2px}
-.cal-slot.empty{color:var(--tx4);font-style:italic;font-size:11px}
-.cal-note{font-size:12px;color:var(--tx3);margin-top:16px;font-style:italic;line-height:1.7;max-width:780px}
+.mtg-meta{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0 12px;font-size:11px;color:var(--tx3);letter-spacing:.04em}
+.mtg-meta span strong{color:var(--tx2);font-weight:500;margin-right:6px}
+.mtg-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.mtg-row{display:grid;grid-template-columns:74px 1fr;gap:14px;padding:12px 16px;background:var(--wh);border:1px solid var(--bd);border-left:2px solid var(--ch);align-items:start;transition:background .15s}
+.mtg-row:hover{background:#FCF8FB}
+.mtg-time{font-family:var(--s);font-size:11px;font-weight:500;color:var(--ch-dim);letter-spacing:.04em;padding-top:2px;white-space:nowrap}
+.mtg-body{min-width:0}
+.mtg-co{font-size:13.5px;font-weight:500;color:var(--tx);line-height:1.35;margin-bottom:2px}
+.mtg-contact{font-size:11.5px;color:var(--tx3);line-height:1.5}
+.mtg-room{display:inline-block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx4);margin-left:8px;vertical-align:middle}
+.cal-note{font-size:12px;color:var(--tx3);margin-top:18px;font-style:italic;line-height:1.7;max-width:780px}
 
 /* yoy bar chart */
 .yoy{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 0}
