@@ -55,30 +55,34 @@ nav{display:flex;overflow-x:auto}
 .lg-sw.hosted{background:var(--go-bg);border-color:var(--go-bd)}
 .lg-sw.attended{background:#E8E4DC;opacity:.5}
 .lg-sw.absent{background:transparent;border-color:var(--bd);border-style:dashed}
-.matrix{border:1px solid var(--bd);background:var(--wh);overflow:hidden}
-.mx-row{display:grid;grid-template-columns:200px 1fr 1fr 1fr;border-bottom:1px solid var(--bdl)}
-.mx-row:last-child{border-bottom:none}
-.mx-row.header{background:#F8F6F0;border-bottom:1px solid var(--bd)}
-.mx-head{padding:12px 16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx2);font-weight:500;border-right:1px solid var(--bdl)}
-.mx-cat{padding:12px 16px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ch);font-weight:500;border-right:1px solid var(--bdl);background:#F8F6F0;grid-column:1/-1}
-.mx-event{padding:14px 16px;font-size:14px;font-weight:400;color:var(--tx);border-right:1px solid var(--bdl);display:flex;align-items:center}
-.mx-cell{padding:14px 16px;border-right:1px solid var(--bdl);display:flex;align-items:center;gap:10px;cursor:pointer;transition:background .15s}
-.mx-cell:last-child{border-right:none}
-.mx-cell:hover{background:#F8F6F0}
-.mx-cell.detailed{background:rgba(35,169,142,.04)}
-.mx-cell.detailed:hover{background:rgba(35,169,142,.1)}
-.mx-cell.dim{opacity:.5}
-.mx-cell .sw{width:14px;height:14px;border:1px solid var(--bd);flex-shrink:0}
-.mx-cell .sw.detailed{background:var(--aq);border-color:var(--aq-dim)}
-.mx-cell .sw.sponsored{background:var(--ch-bg);border-color:var(--ch-bd)}
-.mx-cell .sw.spoke{background:var(--ch);border-color:var(--ch-dim)}
-.mx-cell .sw.hosted{background:var(--go-bg);border-color:var(--go-bd)}
-.mx-cell .sw.attended{background:#E8E4DC}
-.mx-cell .sw.absent{background:transparent;border-color:var(--bd);border-style:dashed}
-.mx-cell .label{font-size:12px;color:var(--tx2);font-weight:300}
-.mx-cell.detailed .label{color:var(--aq-dim);font-weight:400}
-.mx-cell.dim .label{font-style:italic;color:var(--tx3)}
-.mx-cell .loc{font-size:10px;color:var(--tx3);margin-left:auto;letter-spacing:.04em}
+.cal-list{margin-top:4px}
+.cal-cat{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ch);font-weight:500;margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--bdl)}
+.cal-cat:first-child{margin-top:0}
+.cal-item{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:16px 0;border-bottom:1px solid var(--bdl);align-items:start}
+.cal-item:last-child{border-bottom:none}
+.cal-item__name{font-family:var(--f);font-weight:400;font-size:18px;color:var(--tx);line-height:1.25}
+.cal-years{display:flex;gap:10px;flex-wrap:wrap}
+.cal-year{flex:1;min-width:160px;display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--wh);border:1px solid var(--bd);border-left:2px solid var(--bd);transition:background .15s}
+.cal-year:hover{background:#F8F6F0}
+.cal-year.detailed{background:rgba(35,169,142,.05);border-left-color:var(--aq-dim)}
+.cal-year.spoke{border-left-color:var(--ch)}
+.cal-year.sponsored{border-left-color:var(--ch-bd)}
+.cal-year.hosted{background:var(--go-bg);border-left-color:var(--go-bd)}
+.cal-year.attended{opacity:.55}
+.cal-year.absent{opacity:.45;background:transparent;border-style:dashed}
+.cal-year .sw{width:10px;height:10px;border-radius:50%;border:1px solid var(--bd);flex-shrink:0;margin-top:5px}
+.cal-year .sw.detailed{background:var(--aq);border-color:var(--aq-dim)}
+.cal-year .sw.sponsored{background:var(--ch-bg);border-color:var(--ch-bd)}
+.cal-year .sw.spoke{background:var(--ch);border-color:var(--ch-dim)}
+.cal-year .sw.hosted{background:var(--go);border-color:var(--go-dim)}
+.cal-year .sw.attended{background:#C9C5BC;border-color:#A8A49C}
+.cal-year .sw.absent{background:transparent;border-style:dashed}
+.cal-year .yr-body{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.cal-year .yr{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx3);font-weight:500}
+.cal-year .label{font-size:12.5px;color:var(--tx2);font-weight:400;line-height:1.4}
+.cal-year.detailed .label{color:var(--aq-dim);font-weight:500}
+.cal-year.absent .label{font-style:italic;color:var(--tx3)}
+.cal-year .loc{font-size:10px;color:var(--tx3);letter-spacing:.04em;margin-top:1px}
 
 /* THE 200 — accordion */
 .acc-block{border:1px solid var(--bd);background:var(--wh);margin-bottom:10px}
@@ -110,19 +114,17 @@ nav{display:flex;overflow-x:auto}
 .cstat2 .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx3);margin-bottom:8px}
 .cstat2 .val{font-family:var(--f);font-size:32px;font-weight:300;color:var(--ch-dim);line-height:1}
 .cstat2 .sub{font-size:11px;color:var(--tx3);margin-top:6px;line-height:1.5}
-.cal-grid{border:1px solid var(--bd);background:var(--wh);margin-top:16px}
-.cal-row{display:grid;grid-template-columns:90px 1fr 1fr;border-bottom:1px solid var(--bdl)}
-.cal-row:last-child{border-bottom:none}
-.cal-row.cheader{background:#F8F6F0;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx2);font-weight:500}
-.cal-row.cheader > div{padding:12px 16px;border-right:1px solid var(--bdl)}
-.cal-time{padding:12px 16px;font-size:11px;color:var(--tx3);letter-spacing:.04em;border-right:1px solid var(--bdl);font-family:var(--s);font-weight:500}
-.cal-slot{padding:12px 16px;border-right:1px solid var(--bdl);font-size:13px;line-height:1.5}
-.cal-slot:last-child{border-right:none}
-.cal-slot.filled{background:rgba(184,52,114,.03)}
-.cal-slot strong{font-weight:500;color:var(--tx)}
-.cal-slot .ctitle{color:var(--tx3);font-size:11px;display:block;margin-top:2px}
-.cal-slot.empty{color:var(--tx4);font-style:italic;font-size:11px}
-.cal-note{font-size:12px;color:var(--tx3);margin-top:16px;font-style:italic;line-height:1.7;max-width:780px}
+.mtg-meta{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0 12px;font-size:11px;color:var(--tx3);letter-spacing:.04em}
+.mtg-meta span strong{color:var(--tx2);font-weight:500;margin-right:6px}
+.mtg-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.mtg-row{display:grid;grid-template-columns:74px 1fr;gap:14px;padding:12px 16px;background:var(--wh);border:1px solid var(--bd);border-left:2px solid var(--ch);align-items:start;transition:background .15s}
+.mtg-row:hover{background:#FCF8FB}
+.mtg-time{font-family:var(--s);font-size:11px;font-weight:500;color:var(--ch-dim);letter-spacing:.04em;padding-top:2px;white-space:nowrap}
+.mtg-body{min-width:0}
+.mtg-co{font-size:13.5px;font-weight:500;color:var(--tx);line-height:1.35;margin-bottom:2px}
+.mtg-contact{font-size:11.5px;color:var(--tx3);line-height:1.5}
+.mtg-room{display:inline-block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx4);margin-left:8px;vertical-align:middle}
+.cal-note{font-size:12px;color:var(--tx3);margin-top:18px;font-style:italic;line-height:1.7;max-width:780px}
 
 /* yoy bar chart */
 .yoy{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 0}
@@ -155,12 +157,16 @@ footer{margin-top:40px;padding:20px 0;border-top:1px solid var(--bd);display:fle
 footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
 
 @media (max-width:768px){
-  .mx-row{grid-template-columns:140px 1fr 1fr 1fr}
+  .cal-item{grid-template-columns:1fr;gap:10px}
+  .cal-years{flex-direction:column}
+  .cal-year{min-width:0}
+  .mtg-list{grid-template-columns:1fr}
   .rel-grid{grid-template-columns:1fr}
   .cover-stats,.cal-stats,.yoy{grid-template-columns:1fr}
   .acc-head{grid-template-columns:60px 1fr auto}
   .nm-row{grid-template-columns:1fr;gap:2px}
   .nm-co{text-align:left}
+}
 }
 </style>
 </head>
@@ -204,126 +210,151 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
     <div class="lg-item"><span class="lg-sw absent"></span><span>Not present</span></div>
   </div>
 
-  <div class="matrix">
-    <div class="mx-row header">
-      <div class="mx-head">Event</div>
-      <div class="mx-head">2024</div>
-      <div class="mx-head">2025</div>
-      <div class="mx-head">2026</div>
+  <div class="cal-list">
+
+    <div class="cal-cat">Industry &middot; Technology</div>
+
+    <div class="cal-item">
+      <div class="cal-item__name">Realcomm</div>
+      <div class="cal-years">
+        <div class="cal-year detailed"><span class="sw detailed"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Meeting room + speak</span><span class="loc">Tampa</span></div></div>
+        <div class="cal-year detailed"><span class="sw detailed"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Meeting room + reception</span><span class="loc">Savannah</span></div></div>
+        <div class="cal-year detailed"><span class="sw detailed"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Meeting room + VIP event</span><span class="loc">San Diego</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row"><div class="mx-cat">Industry &middot; Technology</div></div>
-
-    <div class="mx-row">
-      <div class="mx-event">Realcomm</div>
-      <div class="mx-cell detailed"><span class="sw detailed"></span><span class="label">Meeting room + speak</span><span class="loc">Tampa</span></div>
-      <div class="mx-cell detailed"><span class="sw detailed"></span><span class="label">Meeting room + reception</span><span class="loc">Savannah</span></div>
-      <div class="mx-cell detailed"><span class="sw detailed"></span><span class="label">Meeting room + VIP event</span><span class="loc">San Diego</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">RETCON</div>
+      <div class="cal-years">
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Attended</span></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Meeting room + speak</span><span class="loc">Las Vegas</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">RETCON</div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
-      <div class="mx-cell detailed"><span class="sw spoke"></span><span class="label">Meeting room + speak</span><span class="loc">Las Vegas</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">CREtech New York</div>
+      <div class="cal-years">
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Attended</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">CREtech New York</div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">Realcomm BuildingsAI</div>
+      <div class="cal-years">
+        <div class="cal-year absent"><span class="sw absent"></span><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored + speak</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">Realcomm BuildingsAI</div>
-      <div class="mx-cell dim"><span class="sw absent"></span><span class="label">&mdash;</span></div>
-      <div class="mx-cell"><span class="sw spoke"></span><span class="label">Sponsored + speak</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    <div class="cal-cat">Industry &middot; Multifamily</div>
+
+    <div class="cal-item">
+      <div class="cal-item__name">NMHC Annual</div>
+      <div class="cal-years">
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row"><div class="mx-cat">Industry &middot; Multifamily</div></div>
-
-    <div class="mx-row">
-      <div class="mx-event">NMHC Annual</div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">NMHC OPTECH</div>
+      <div class="cal-years">
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">NMHC OPTECH</div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">NMHC Research &amp; Data</div>
+      <div class="cal-years">
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Attended</span></div></div>
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Attended</span></div></div>
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Attended</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">NMHC Research &amp; Data</div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">NMHC Spring</div>
+      <div class="cal-years">
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Attended</span></div></div>
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Attended</span></div></div>
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Attended</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">NMHC Spring</div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+    <div class="cal-cat">Institutional &middot; Capital</div>
+
+    <div class="cal-item">
+      <div class="cal-item__name">ULI Fall Meeting</div>
+      <div class="cal-years">
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Attended</span></div></div>
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Attended</span></div></div>
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Attended</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row"><div class="mx-cat">Institutional &middot; Capital</div></div>
-
-    <div class="mx-row">
-      <div class="mx-event">ULI Fall Meeting</div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">Blueprint</div>
+      <div class="cal-years">
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">Blueprint</div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">IMN RE GP/LP Summit</div>
+      <div class="cal-years">
+        <div class="cal-year absent"><span class="sw absent"></span><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Attended</span></div></div>
+        <div class="cal-year attended"><span class="sw attended"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Attended</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">IMN RE GP/LP Summit</div>
-      <div class="mx-cell dim"><span class="sw absent"></span><span class="label">&mdash;</span></div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
-      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+    <div class="cal-cat">Partner &middot; Ecosystem</div>
+
+    <div class="cal-item">
+      <div class="cal-item__name">MRI SKO</div>
+      <div class="cal-years">
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row"><div class="mx-cat">Partner &middot; Ecosystem</div></div>
-
-    <div class="mx-row">
-      <div class="mx-event">MRI SKO</div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">MRI Ascend</div>
+      <div class="cal-years">
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">MRI Ascend</div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
-      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">PwC EMEA Partner Dinner</div>
+      <div class="cal-years">
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Hosted</span><span class="loc">Paris</span></div></div>
+        <div class="cal-year absent"><span class="sw absent"></span><div class="yr-body"><span class="yr">2025</span><span class="label">&mdash;</span></div></div>
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Hosted</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">PwC EMEA Partner Dinner</div>
-      <div class="mx-cell"><span class="sw hosted"></span><span class="label">Hosted</span><span class="loc">Paris</span></div>
-      <div class="mx-cell dim"><span class="sw absent"></span><span class="label">&mdash;</span></div>
-      <div class="mx-cell"><span class="sw hosted"></span><span class="label">Hosted</span></div>
+    <div class="cal-item">
+      <div class="cal-item__name">Alpha Alternatives EMEA</div>
+      <div class="cal-years">
+        <div class="cal-year absent"><span class="sw absent"></span><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Hosted</span></div></div>
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Hosted</span></div></div>
+      </div>
     </div>
 
-    <div class="mx-row">
-      <div class="mx-event">Alpha Alternatives EMEA</div>
-      <div class="mx-cell dim"><span class="sw absent"></span><span class="label">&mdash;</span></div>
-      <div class="mx-cell"><span class="sw hosted"></span><span class="label">Hosted</span></div>
-      <div class="mx-cell"><span class="sw hosted"></span><span class="label">Hosted</span></div>
-    </div>
   </div>
 </section>
 
@@ -383,7 +414,7 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
 <section class="section" id="the30">
   <div class="kicker">The 30</div>
   <div class="section-title">Who Cherre sits down with</div>
-  <div class="section-sub">A private meeting room at an industry conference is rare. Filling it with thirty pre-scheduled 30-minute meetings against named C-level contacts is rarer. Below are Cherre&rsquo;s own year-over-year meeting counts at Realcomm, drawn from the internal post-event tracker. The 2024 calendar appears below to illustrate the density.</div>
+  <div class="section-sub">A private meeting room at an industry conference is rare. Filling it with thirty pre-scheduled 30-minute meetings against named C-level contacts is rarer. Below are Cherre&rsquo;s own year-over-year meeting counts at Realcomm, drawn from the internal post-event tracker. The 2024 meeting log appears below to illustrate the density.</div>
 
   <div class="cal-stats">
     <div class="cstat2"><div class="lbl">2024 Tampa</div><div class="val">33</div><div class="sub">Meeting room + booth + pre-event dinners. 28 revenue ops, 4 partner, 1 client.</div></div>
@@ -391,32 +422,32 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
     <div class="cstat2"><div class="lbl">2026 San Diego</div><div class="val">~40</div><div class="sub">Pre-event &middot; 17 confirmed + pipeline closing now, 10 days from event.</div></div>
   </div>
 
-  <div class="section-title" style="font-size:20px;margin-top:32px;margin-bottom:6px">Realcomm 2024 &middot; meeting room calendar, Day 1 (June 20)</div>
-  <div class="section-sub" style="margin-bottom:16px">Eight straight hours of pre-scheduled 30-minute sit-downs in Cherre&rsquo;s private meeting room #411. Each slot is one named institutional contact. This is one day of one event.</div>
+  <div class="section-title" style="font-size:20px;margin-top:32px;margin-bottom:6px">Realcomm 2024 &middot; Day 1 meeting log (June 20)</div>
+  <div class="section-sub" style="margin-bottom:8px">Eight straight hours of pre-scheduled 30-minute sit-downs in Cherre&rsquo;s private meeting room #411. Each line below is one named institutional contact.</div>
+  <div class="mtg-meta">
+    <span><strong>17</strong>meetings booked</span>
+    <span><strong>16</strong>institutional firms</span>
+    <span><strong>Room 411</strong>Realcomm 2024 &middot; Tampa</span>
+  </div>
 
-  <div class="cal-grid">
-    <div class="cal-row cheader">
-      <div>Time</div>
-      <div>Day 1 &middot; June 20</div>
-      <div>Day 2 &middot; June 21</div>
-    </div>
-    <div class="cal-row"><div class="cal-time">10:00 AM</div><div class="cal-slot filled"><strong>Bridge Investment Group</strong><span class="ctitle">Scott Cardenas, CTO</span></div><div class="cal-slot filled"><strong>Dealcloud</strong><span class="ctitle">Frank Spadafora</span></div></div>
-    <div class="cal-row"><div class="cal-time">10:30 AM</div><div class="cal-slot filled"><strong>PCCP</strong><span class="ctitle">Meina Zhi, SVP Business Applications</span></div><div class="cal-slot filled"><strong>Townhouse</strong><span class="ctitle">Craig Lombard</span></div></div>
-    <div class="cal-row"><div class="cal-time">11:00 AM</div><div class="cal-slot filled"><strong>Kimco</strong><span class="ctitle">Tom Taddeo (EVP/CIO), Ken Fisher, Shelton Smith</span></div><div class="cal-slot filled"><strong>Retransform</strong><span class="ctitle">Rohan, Lynn, Bhavin</span></div></div>
-    <div class="cal-row"><div class="cal-time">11:30 AM</div><div class="cal-slot filled"><strong>SITE Centers + Brixmor</strong><span class="ctitle">Kim Scharf, Helane Stein</span></div><div class="cal-slot filled"><strong>BPG Retail</strong><span class="ctitle">Steve Stapley</span></div></div>
-    <div class="cal-row"><div class="cal-time">12:00 PM</div><div class="cal-slot filled"><strong>BGO</strong><span class="ctitle">Kris Stoner</span></div><div class="cal-slot filled"><strong>WSS Associates</strong><span class="ctitle">Fergus Owens</span></div></div>
-    <div class="cal-row"><div class="cal-time">12:30 PM</div><div class="cal-slot filled"><strong>Remit Consulting</strong><span class="ctitle">Lorna and Andrew</span></div><div class="cal-slot empty">Lunch / open</div></div>
-    <div class="cal-row"><div class="cal-time">1:00 PM</div><div class="cal-slot filled"><strong>QuadReal</strong><span class="ctitle">Sonny Thind, Heather Watts, Marcel Marra, Allyson</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">1:30 PM</div><div class="cal-slot filled"><strong>EDENS</strong><span class="ctitle">Marguerite Westbrook (SVP Technology), Amanda Kirton</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">2:00 PM</div><div class="cal-slot filled"><strong>CIM Group</strong><span class="ctitle">Janet Eaton</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">2:30 PM</div><div class="cal-slot filled"><strong>REstack</strong><span class="ctitle">Anthony Paes-Braga</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">3:00 PM</div><div class="cal-slot filled"><strong>Cousins Properties</strong><span class="ctitle">Brandon Van Orden, Clayton Broemsen</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">3:30 PM</div><div class="cal-slot filled"><strong>EastGroup Properties</strong><span class="ctitle">Brian Laird, CIO</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">4:00 PM</div><div class="cal-slot filled"><strong>Walton Street Capital</strong><span class="ctitle">Paul Niser, CTO</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">4:30 PM</div><div class="cal-slot filled"><strong>First Capital REIT</strong><span class="ctitle">Simon Streeter, CIO</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">5:00 PM</div><div class="cal-slot filled"><strong>Ventas</strong><span class="ctitle">Bhavana Devulapally, CIO</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">5:30 PM</div><div class="cal-slot filled"><strong>Bedrock Detroit</strong><span class="ctitle">Amanda Gibb</span></div><div class="cal-slot empty">&mdash;</div></div>
-    <div class="cal-row"><div class="cal-time">9:30 AM</div><div class="cal-slot empty">&mdash;</div><div class="cal-slot filled"><strong>Empire State Realty Trust</strong><span class="ctitle">Sandy Jacolow, Denis Cekic (Head of App Dev, Data Lake, AI)</span></div></div>
+  <div class="mtg-list">
+    <div class="mtg-row"><div class="mtg-time">10:00 AM</div><div class="mtg-body"><div class="mtg-co">Bridge Investment Group</div><div class="mtg-contact">Scott Cardenas, CTO</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">10:30 AM</div><div class="mtg-body"><div class="mtg-co">PCCP</div><div class="mtg-contact">Meina Zhi, SVP Business Applications</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">11:00 AM</div><div class="mtg-body"><div class="mtg-co">Kimco</div><div class="mtg-contact">Tom Taddeo (EVP/CIO), Ken Fisher, Shelton Smith</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">11:30 AM</div><div class="mtg-body"><div class="mtg-co">SITE Centers + Brixmor</div><div class="mtg-contact">Kim Scharf, Helane Stein</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">12:00 PM</div><div class="mtg-body"><div class="mtg-co">BGO</div><div class="mtg-contact">Kris Stoner</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">12:30 PM</div><div class="mtg-body"><div class="mtg-co">Remit Consulting</div><div class="mtg-contact">Lorna and Andrew</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">1:00 PM</div><div class="mtg-body"><div class="mtg-co">QuadReal</div><div class="mtg-contact">Sonny Thind, Heather Watts, Marcel Marra, Allyson</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">1:30 PM</div><div class="mtg-body"><div class="mtg-co">EDENS</div><div class="mtg-contact">Marguerite Westbrook (SVP Technology), Amanda Kirton</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">2:00 PM</div><div class="mtg-body"><div class="mtg-co">CIM Group</div><div class="mtg-contact">Janet Eaton</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">2:30 PM</div><div class="mtg-body"><div class="mtg-co">REstack</div><div class="mtg-contact">Anthony Paes-Braga</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">3:00 PM</div><div class="mtg-body"><div class="mtg-co">Cousins Properties</div><div class="mtg-contact">Brandon Van Orden, Clayton Broemsen</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">3:30 PM</div><div class="mtg-body"><div class="mtg-co">EastGroup Properties</div><div class="mtg-contact">Brian Laird, CIO</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">4:00 PM</div><div class="mtg-body"><div class="mtg-co">Walton Street Capital</div><div class="mtg-contact">Paul Niser, CTO</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">4:30 PM</div><div class="mtg-body"><div class="mtg-co">First Capital REIT</div><div class="mtg-contact">Simon Streeter, CIO</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">5:00 PM</div><div class="mtg-body"><div class="mtg-co">Ventas</div><div class="mtg-contact">Bhavana Devulapally, CIO</div></div></div>
+    <div class="mtg-row"><div class="mtg-time">5:30 PM</div><div class="mtg-body"><div class="mtg-co">Bedrock Detroit</div><div class="mtg-contact">Amanda Gibb</div></div></div>
+    <div class="mtg-row" style="border-left-color:var(--aq-dim)"><div class="mtg-time">Day 2 &middot; 9:30 AM</div><div class="mtg-body"><div class="mtg-co">Empire State Realty Trust</div><div class="mtg-contact">Sandy Jacolow, Denis Cekic (Head of App Dev, Data Lake, AI) &mdash; Dealcloud, Townhouse, Retransform, BPG Retail, WSS Associates &amp; more carried over to Day 2 morning slots.</div></div></div>
   </div>
   <div class="cal-note">Plus pre-event sessions on June 18-19: TPG dinner with Jeremy Poteet (JBG Smith), Chris Gilene (Affinius), Gregg Haverstick (RealFoundations) &middot; RealTalk Founders Dinner at Oak &amp; Ola &middot; QuadReal and Federal Realty (Porter Bellew, SVP CIO) private sessions in Room 401. This same model runs at every Realcomm. The 2025 and 2026 calendars are equally dense.</div>
 </section>
