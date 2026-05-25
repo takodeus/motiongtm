@@ -55,30 +55,34 @@ nav{display:flex;overflow-x:auto}
 .lg-sw.hosted{background:var(--go-bg);border-color:var(--go-bd)}
 .lg-sw.attended{background:#E8E4DC;opacity:.5}
 .lg-sw.absent{background:transparent;border-color:var(--bd);border-style:dashed}
-.matrix{border:1px solid var(--bd);background:var(--wh);overflow:hidden}
-.mx-row{display:grid;grid-template-columns:200px 1fr 1fr 1fr;border-bottom:1px solid var(--bdl)}
-.mx-row:last-child{border-bottom:none}
-.mx-row.header{background:#F8F6F0;border-bottom:1px solid var(--bd)}
-.mx-head{padding:12px 16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx2);font-weight:500;border-right:1px solid var(--bdl)}
-.mx-cat{padding:12px 16px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ch);font-weight:500;border-right:1px solid var(--bdl);background:#F8F6F0;grid-column:1/-1}
-.mx-event{padding:14px 16px;font-size:14px;font-weight:400;color:var(--tx);border-right:1px solid var(--bdl);display:flex;align-items:center}
-.mx-cell{padding:14px 16px;border-right:1px solid var(--bdl);display:flex;align-items:center;gap:10px;cursor:pointer;transition:background .15s}
-.mx-cell:last-child{border-right:none}
-.mx-cell:hover{background:#F8F6F0}
-.mx-cell.detailed{background:rgba(35,169,142,.04)}
-.mx-cell.detailed:hover{background:rgba(35,169,142,.1)}
-.mx-cell.dim{opacity:.5}
-.mx-cell .sw{width:14px;height:14px;border:1px solid var(--bd);flex-shrink:0}
-.mx-cell .sw.detailed{background:var(--aq);border-color:var(--aq-dim)}
-.mx-cell .sw.sponsored{background:var(--ch-bg);border-color:var(--ch-bd)}
-.mx-cell .sw.spoke{background:var(--ch);border-color:var(--ch-dim)}
-.mx-cell .sw.hosted{background:var(--go-bg);border-color:var(--go-bd)}
-.mx-cell .sw.attended{background:#E8E4DC}
-.mx-cell .sw.absent{background:transparent;border-color:var(--bd);border-style:dashed}
-.mx-cell .label{font-size:12px;color:var(--tx2);font-weight:300}
-.mx-cell.detailed .label{color:var(--aq-dim);font-weight:400}
-.mx-cell.dim .label{font-style:italic;color:var(--tx3)}
-.mx-cell .loc{font-size:10px;color:var(--tx3);margin-left:auto;letter-spacing:.04em}
+.cal-list{margin-top:4px}
+.cal-cat{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ch);font-weight:500;margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--bdl)}
+.cal-cat:first-child{margin-top:0}
+.cal-item{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:16px 0;border-bottom:1px solid var(--bdl);align-items:start}
+.cal-item:last-child{border-bottom:none}
+.cal-item__name{font-family:var(--f);font-weight:400;font-size:18px;color:var(--tx);line-height:1.25}
+.cal-years{display:flex;gap:10px;flex-wrap:wrap}
+.cal-year{flex:1;min-width:160px;display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--wh);border:1px solid var(--bd);border-left:2px solid var(--bd);transition:background .15s}
+.cal-year:hover{background:#F8F6F0}
+.cal-year.detailed{background:rgba(35,169,142,.05);border-left-color:var(--aq-dim)}
+.cal-year.spoke{border-left-color:var(--ch)}
+.cal-year.sponsored{border-left-color:var(--ch-bd)}
+.cal-year.hosted{background:var(--go-bg);border-left-color:var(--go-bd)}
+.cal-year.attended{opacity:.55}
+.cal-year.absent{opacity:.45;background:transparent;border-style:dashed}
+.cal-year .sw{width:10px;height:10px;border-radius:50%;border:1px solid var(--bd);flex-shrink:0;margin-top:5px}
+.cal-year .sw.detailed{background:var(--aq);border-color:var(--aq-dim)}
+.cal-year .sw.sponsored{background:var(--ch-bg);border-color:var(--ch-bd)}
+.cal-year .sw.spoke{background:var(--ch);border-color:var(--ch-dim)}
+.cal-year .sw.hosted{background:var(--go);border-color:var(--go-dim)}
+.cal-year .sw.attended{background:#C9C5BC;border-color:#A8A49C}
+.cal-year .sw.absent{background:transparent;border-style:dashed}
+.cal-year .yr-body{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.cal-year .yr{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx3);font-weight:500}
+.cal-year .label{font-size:12.5px;color:var(--tx2);font-weight:400;line-height:1.4}
+.cal-year.detailed .label{color:var(--aq-dim);font-weight:500}
+.cal-year.absent .label{font-style:italic;color:var(--tx3)}
+.cal-year .loc{font-size:10px;color:var(--tx3);letter-spacing:.04em;margin-top:1px}
 
 /* THE 200 — accordion */
 .acc-block{border:1px solid var(--bd);background:var(--wh);margin-bottom:10px}
