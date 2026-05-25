@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Industry Footprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ch:#B83472;--ch-bg:#FCF0F6;--ch-dim:#8B2055;--ch-bd:#DFA0C0;
+  --go:#C9981F;--go-bg:#FFFBF0;--go-dim:#7A6020;--go-bd:#E8D49A;
+  --aq:#23A98E;--aq-bg:#E8F7F4;--aq-dim:#1A7C68;
+  --bg:#FAFAF8;--wh:#FFFFFF;
+  --tx:#0D0D0B;--tx2:#5A5856;--tx3:#9A9690;--tx4:#B0ADA6;
+  --bd:#E8E4DC;--bdl:#F0EDE6;
+  --f:'Fraunces',Georgia,serif;--s:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--tx);font-family:var(--s);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+header{position:sticky;top:0;z-index:100;background:rgba(250,250,248,.97);border-bottom:1px solid var(--bd);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;gap:20px}
+.brand{font-family:var(--f);font-size:13px;font-weight:700;color:var(--ch);white-space:nowrap;letter-spacing:.12em;text-transform:uppercase}
+nav{display:flex;overflow-x:auto}
+.np{font-size:11px;letter-spacing:.06em;padding:0 10px;height:52px;display:flex;align-items:center;color:var(--tx3);cursor:pointer;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;text-decoration:none;white-space:nowrap}
+.np:hover{color:var(--tx)}
+.np.active{color:var(--ch);border-bottom:2px solid var(--ch)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 48px}
+
+#cover{padding:64px 0 40px;border-bottom:1px solid var(--bd)}
+.stamp{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--tx4);margin-bottom:18px}
+.cover-title{font-family:var(--f);font-weight:300;font-size:clamp(40px,5.5vw,60px);line-height:1.04;color:var(--tx);margin-bottom:10px}
+.cover-sub{font-family:var(--f);font-weight:300;font-size:20px;color:var(--tx3);margin-bottom:28px;max-width:780px;line-height:1.4}
+.cover-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.cstat{padding:18px 20px;border:1px solid var(--bd);background:var(--wh)}
+.cstat.lead{border-left:3px solid var(--ch)}
+.cstat .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx3);margin-bottom:8px}
+.cstat .val{font-family:var(--f);font-size:34px;font-weight:300;color:var(--tx);line-height:1}
+.cstat.lead .val{color:var(--ch-dim)}
+.cstat .sub{font-size:12px;color:var(--tx3);margin-top:6px;line-height:1.5}
+
+.section{padding:56px 0;border-bottom:1px solid var(--bd)}
+.kicker{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ch);font-weight:500;margin-bottom:18px}
+.section-title{font-family:var(--f);font-weight:300;font-size:32px;line-height:1.1;color:var(--tx);margin-bottom:8px}
+.section-sub{font-size:14px;font-weight:300;color:var(--tx3);margin-bottom:28px;max-width:820px;line-height:1.7}
+
+/* MATRIX */
+.matrix-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--bdl);font-size:11px;color:var(--tx3);letter-spacing:.04em}
+.lg-item{display:flex;align-items:center;gap:7px}
+.lg-sw{width:14px;height:14px;border:1px solid var(--bd);display:inline-block}
+.lg-sw.detailed{background:var(--aq);border-color:var(--aq-dim)}
+.lg-sw.sponsored{background:var(--ch-bg);border-color:var(--ch-bd)}
+.lg-sw.spoke{background:var(--ch);border-color:var(--ch-dim)}
+.lg-sw.hosted{background:var(--go-bg);border-color:var(--go-bd)}
+.lg-sw.attended{background:#E8E4DC;opacity:.5}
+.lg-sw.absent{background:transparent;border-color:var(--bd);border-style:dashed}
+.matrix{border:1px solid var(--bd);background:var(--wh);overflow:hidden}
+.mx-row{display:grid;grid-template-columns:200px 1fr 1fr 1fr;border-bottom:1px solid var(--bdl)}
+.mx-row:last-child{border-bottom:none}
+.mx-row.header{background:#F8F6F0;border-bottom:1px solid var(--bd)}
+.mx-head{padding:12px 16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx2);font-weight:500;border-right:1px solid var(--bdl)}
+.mx-cat{padding:12px 16px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ch);font-weight:500;border-right:1px solid var(--bdl);background:#F8F6F0;grid-column:1/-1}
+.mx-event{padding:14px 16px;font-size:14px;font-weight:400;color:var(--tx);border-right:1px solid var(--bdl);display:flex;align-items:center}
+.mx-cell{padding:14px 16px;border-right:1px solid var(--bdl);display:flex;align-items:center;gap:10px;cursor:pointer;transition:background .15s}
+.mx-cell:last-child{border-right:none}
+.mx-cell:hover{background:#F8F6F0}
+.mx-cell.detailed{background:rgba(35,169,142,.04)}
+.mx-cell.detailed:hover{background:rgba(35,169,142,.1)}
+.mx-cell.dim{opacity:.5}
+.mx-cell .sw{width:14px;height:14px;border:1px solid var(--bd);flex-shrink:0}
+.mx-cell .sw.detailed{background:var(--aq);border-color:var(--aq-dim)}
+.mx-cell .sw.sponsored{background:var(--ch-bg);border-color:var(--ch-bd)}
+.mx-cell .sw.spoke{background:var(--ch);border-color:var(--ch-dim)}
+.mx-cell .sw.hosted{background:var(--go-bg);border-color:var(--go-bd)}
+.mx-cell .sw.attended{background:#E8E4DC}
+.mx-cell .sw.absent{background:transparent;border-color:var(--bd);border-style:dashed}
+.mx-cell .label{font-size:12px;color:var(--tx2);font-weight:300}
+.mx-cell.detailed .label{color:var(--aq-dim);font-weight:400}
+.mx-cell.dim .label{font-style:italic;color:var(--tx3)}
+.mx-cell .loc{font-size:10px;color:var(--tx3);margin-left:auto;letter-spacing:.04em}
+
+/* THE 200 — accordion */
+.acc-block{border:1px solid var(--bd);background:var(--wh);margin-bottom:10px}
+.acc-head{padding:18px 24px;cursor:pointer;display:grid;grid-template-columns:90px 1fr auto auto;gap:20px;align-items:center;transition:background .15s}
+.acc-head:hover{background:#F8F6F0}
+.acc-yr{font-family:var(--f);font-weight:400;font-size:22px;color:var(--ch-dim)}
+.acc-event{font-size:13px;color:var(--tx2);line-height:1.5}
+.acc-event strong{font-weight:500;color:var(--tx)}
+.acc-count{font-size:13px;color:var(--tx3);letter-spacing:.04em}
+.acc-count strong{font-family:var(--f);font-size:24px;font-weight:300;color:var(--ch-dim);margin-right:4px}
+.acc-toggle{width:24px;height:24px;border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--tx3);transition:all .15s}
+.acc-block.open .acc-toggle{border-color:var(--ch);color:var(--ch);background:var(--ch-bg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.acc-inner{padding:0 24px 24px 24px;border-top:1px solid var(--bdl)}
+.acc-meta{padding:14px 0;font-size:12px;color:var(--tx3);font-style:italic;border-bottom:1px solid var(--bdl);margin-bottom:8px}
+.nm-list{margin-top:4px;max-height:560px;overflow-y:auto;padding-right:8px}
+.nm-list::-webkit-scrollbar{width:6px}
+.nm-list::-webkit-scrollbar-track{background:var(--bdl)}
+.nm-list::-webkit-scrollbar-thumb{background:var(--tx4);border-radius:3px}
+.nm-row{display:grid;grid-template-columns:200px 1fr 200px;gap:14px;padding:8px 0;border-bottom:1px solid var(--bdl);font-size:13px;align-items:start}
+.nm-row:last-child{border-bottom:none}
+.nm-name{font-weight:500;color:var(--tx)}
+.nm-title{color:var(--tx3);font-size:12px;line-height:1.5}
+.nm-co{color:var(--tx2);font-size:12px;text-align:right}
+
+/* THE 30 — meeting calendar */
+.cal-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.cstat2{padding:18px 20px;border:1px solid var(--bd);background:var(--wh);border-top:2px solid var(--ch)}
+.cstat2 .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx3);margin-bottom:8px}
+.cstat2 .val{font-family:var(--f);font-size:32px;font-weight:300;color:var(--ch-dim);line-height:1}
+.cstat2 .sub{font-size:11px;color:var(--tx3);margin-top:6px;line-height:1.5}
+.cal-grid{border:1px solid var(--bd);background:var(--wh);margin-top:16px}
+.cal-row{display:grid;grid-template-columns:90px 1fr 1fr;border-bottom:1px solid var(--bdl)}
+.cal-row:last-child{border-bottom:none}
+.cal-row.cheader{background:#F8F6F0;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx2);font-weight:500}
+.cal-row.cheader > div{padding:12px 16px;border-right:1px solid var(--bdl)}
+.cal-time{padding:12px 16px;font-size:11px;color:var(--tx3);letter-spacing:.04em;border-right:1px solid var(--bdl);font-family:var(--s);font-weight:500}
+.cal-slot{padding:12px 16px;border-right:1px solid var(--bdl);font-size:13px;line-height:1.5}
+.cal-slot:last-child{border-right:none}
+.cal-slot.filled{background:rgba(184,52,114,.03)}
+.cal-slot strong{font-weight:500;color:var(--tx)}
+.cal-slot .ctitle{color:var(--tx3);font-size:11px;display:block;margin-top:2px}
+.cal-slot.empty{color:var(--tx4);font-style:italic;font-size:11px}
+.cal-note{font-size:12px;color:var(--tx3);margin-top:16px;font-style:italic;line-height:1.7;max-width:780px}
+
+/* yoy bar chart */
+.yoy{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 0}
+.yoy-card{padding:18px 20px;border:1px solid var(--bd);background:var(--wh)}
+.yoy-yr{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);margin-bottom:8px}
+.yoy-val{font-family:var(--f);font-size:42px;font-weight:300;color:var(--ch);line-height:1;margin-bottom:8px}
+.yoy-sub{font-size:11px;color:var(--tx3);line-height:1.5}
+.yoy-bars{display:flex;gap:6px;margin-top:14px;align-items:flex-end;height:50px}
+.yoy-bar{flex:1;background:var(--ch-bg);border:1px solid var(--ch-bd);position:relative}
+.yoy-bar .v{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--tx3)}
+.yoy-bar .l{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--tx3);letter-spacing:.04em}
+
+/* relationships */
+.rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.rel-cat{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ch);font-weight:500;margin:24px 0 12px;grid-column:1/-1}
+.rel-cat:first-child{margin-top:0}
+.rel-card{padding:18px 20px;border:1px solid var(--bd);background:var(--wh)}
+.rel-card.featured{border-left:3px solid var(--ch)}
+.rel-name{font-family:var(--f);font-weight:400;font-size:17px;color:var(--tx);margin-bottom:4px}
+.rel-events{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);font-weight:500;margin-bottom:10px}
+.rel-contacts{font-size:12.5px;color:var(--tx2);line-height:1.7}
+.rel-contacts strong{font-weight:500;color:var(--tx)}
+
+/* closing */
+#closing{padding:56px 0 64px;border-bottom:none}
+.closing-statement{font-family:var(--f);font-weight:300;font-size:24px;line-height:1.45;color:var(--tx);max-width:820px;margin-bottom:20px}
+.closing-body{font-size:15px;color:var(--tx2);line-height:1.85;max-width:820px;margin-bottom:14px;font-weight:300}
+
+footer{margin-top:40px;padding:20px 0;border-top:1px solid var(--bd);display:flex;justify-content:space-between}
+footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
+
+@media (max-width:768px){
+  .mx-row{grid-template-columns:140px 1fr 1fr 1fr}
+  .rel-grid{grid-template-columns:1fr}
+  .cover-stats,.cal-stats,.yoy{grid-template-columns:1fr}
+  .acc-head{grid-template-columns:60px 1fr auto}
+  .nm-row{grid-template-columns:1fr;gap:2px}
+  .nm-co{text-align:left}
+}
+</style>
+</head>
+<body>
+<header>
+  <span class="brand">Industry Footprint</span>
+  <nav id="main-nav">
+    <a class="np" href="#cover">Overview</a>
+    <a class="np" href="#matrix">Calendar</a>
+    <a class="np" href="#the200">The 200</a>
+    <a class="np" href="#the30">The 30</a>
+    <a class="np" href="#relationships">Relationships</a>
+    <a class="np" href="#closing">Position</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+<section id="cover">
+  <div class="stamp">Three-Year Industry Footprint &nbsp;&middot;&nbsp; Convening Power</div>
+  <h1 class="cover-title">200 in the room.<br>30 in the chair.</h1>
+  <div class="cover-sub">Most vendors host a dinner for twenty. Cherre convenes two hundred and sits thirty of them down one-on-one in the same week. Three years running.</div>
+  <div class="cover-stats">
+    <div class="cstat lead"><div class="lbl">Per Cherre-hosted event</div><div class="val">200+</div><div class="sub">Senior executives convened (Realcomm cocktail reception, dinners, hosted gatherings). Documented invite lists; actual attendance higher.</div></div>
+    <div class="cstat lead"><div class="lbl">Per Realcomm conference</div><div class="val">30+</div><div class="sub">Dedicated 30-minute meetings with named C-level and senior contacts in Cherre&rsquo;s private meeting room.</div></div>
+    <div class="cstat"><div class="lbl">Three-year cumulative</div><div class="val">~120</div><div class="sub">Realcomm meeting room sessions across 2024, 2025, 2026 (per Cherre&rsquo;s own KPI tracker).</div></div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="section" id="matrix">
+  <div class="kicker">The Calendar</div>
+  <div class="section-title">Where Cherre showed up</div>
+  <div class="section-sub">Every event of consequence in institutional real assets across the past three years. Highlighted cells (teal) indicate Cherre sponsored, hosted, or held a private meeting room. Dimmed cells indicate documented attendance only. Sections below drill into the rooms Cherre convened and the calendars Cherre filled.</div>
+
+  <div class="matrix-legend">
+    <div class="lg-item"><span class="lg-sw detailed"></span><span>Sponsored + private meeting room</span></div>
+    <div class="lg-item"><span class="lg-sw hosted"></span><span>Hosted private event</span></div>
+    <div class="lg-item"><span class="lg-sw sponsored"></span><span>Sponsored</span></div>
+    <div class="lg-item"><span class="lg-sw attended"></span><span>Attended</span></div>
+    <div class="lg-item"><span class="lg-sw absent"></span><span>Not present</span></div>
+  </div>
+
+  <div class="matrix">
+    <div class="mx-row header">
+      <div class="mx-head">Event</div>
+      <div class="mx-head">2024</div>
+      <div class="mx-head">2025</div>
+      <div class="mx-head">2026</div>
+    </div>
+
+    <div class="mx-row"><div class="mx-cat">Industry &middot; Technology</div></div>
+
+    <div class="mx-row">
+      <div class="mx-event">Realcomm</div>
+      <div class="mx-cell detailed"><span class="sw detailed"></span><span class="label">Meeting room + speak</span><span class="loc">Tampa</span></div>
+      <div class="mx-cell detailed"><span class="sw detailed"></span><span class="label">Meeting room + reception</span><span class="loc">Savannah</span></div>
+      <div class="mx-cell detailed"><span class="sw detailed"></span><span class="label">Meeting room + VIP event</span><span class="loc">San Diego</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">RETCON</div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+      <div class="mx-cell detailed"><span class="sw spoke"></span><span class="label">Meeting room + speak</span><span class="loc">Las Vegas</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">CREtech New York</div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">Realcomm BuildingsAI</div>
+      <div class="mx-cell dim"><span class="sw absent"></span><span class="label">&mdash;</span></div>
+      <div class="mx-cell"><span class="sw spoke"></span><span class="label">Sponsored + speak</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    </div>
+
+    <div class="mx-row"><div class="mx-cat">Industry &middot; Multifamily</div></div>
+
+    <div class="mx-row">
+      <div class="mx-event">NMHC Annual</div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">NMHC OPTECH</div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">NMHC Research &amp; Data</div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">NMHC Spring</div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+    </div>
+
+    <div class="mx-row"><div class="mx-cat">Institutional &middot; Capital</div></div>
+
+    <div class="mx-row">
+      <div class="mx-event">ULI Fall Meeting</div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">Blueprint</div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">IMN RE GP/LP Summit</div>
+      <div class="mx-cell dim"><span class="sw absent"></span><span class="label">&mdash;</span></div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+      <div class="mx-cell dim"><span class="sw attended"></span><span class="label">Attended</span></div>
+    </div>
+
+    <div class="mx-row"><div class="mx-cat">Partner &middot; Ecosystem</div></div>
+
+    <div class="mx-row">
+      <div class="mx-event">MRI SKO</div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">MRI Ascend</div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+      <div class="mx-cell"><span class="sw sponsored"></span><span class="label">Sponsored</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">PwC EMEA Partner Dinner</div>
+      <div class="mx-cell"><span class="sw hosted"></span><span class="label">Hosted</span><span class="loc">Paris</span></div>
+      <div class="mx-cell dim"><span class="sw absent"></span><span class="label">&mdash;</span></div>
+      <div class="mx-cell"><span class="sw hosted"></span><span class="label">Hosted</span></div>
+    </div>
+
+    <div class="mx-row">
+      <div class="mx-event">Alpha Alternatives EMEA</div>
+      <div class="mx-cell dim"><span class="sw absent"></span><span class="label">&mdash;</span></div>
+      <div class="mx-cell"><span class="sw hosted"></span><span class="label">Hosted</span></div>
+      <div class="mx-cell"><span class="sw hosted"></span><span class="label">Hosted</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE 200 -->
+<section class="section" id="the200">
+  <div class="kicker">The 200</div>
+  <div class="section-title">Who Cherre brings to the room</div>
+  <div class="section-sub">Most vendors host a dinner for twenty. Cherre fills a room with two hundred. Below are the documented invite lists for Cherre&rsquo;s hosted events at Realcomm across three years. These are the names Cherre has chosen to put in the room. Actual attendance is higher: walk-ups, partner guests, and team members not individually invited.</div>
+
+  <div class="acc-block" data-acc="rc26">
+    <div class="acc-head">
+      <div class="acc-yr">2026</div>
+      <div class="acc-event"><strong>Realcomm San Diego</strong> &middot; June 2&ndash;4, 2026 &middot; VIP event</div>
+      <div class="acc-count"><strong>76</strong>VIP invites</div>
+      <div class="acc-toggle">+</div>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="acc-meta">VIP invite list documents 76 named senior executives. Event is forthcoming as of publication; this is the pre-event invite roster.</div>
+        <div class="nm-list"><div class="nm-row"><div class="nm-name">Christopher Gilene</div><div class="nm-title">Global Head of Technology &amp; Innovation</div><div class="nm-co">Affinius Capital</div></div><div class="nm-row"><div class="nm-name">Larry Kaufman</div><div class="nm-title">Chief Information Officer &amp; VP - Continuous Improvement</div><div class="nm-co">Agree Realty</div></div><div class="nm-row"><div class="nm-name">Greg Thomas</div><div class="nm-title">SVP, CTO</div><div class="nm-co">Alexandria Real Estate Equities</div></div><div class="nm-row"><div class="nm-name">Alex Droste</div><div class="nm-title">Global Real Estate Platform Leader</div><div class="nm-co">Alter Domus</div></div><div class="nm-row"><div class="nm-name">Benay Kirk</div><div class="nm-title">Managing Director, Head of Financial &amp; Performance Reporting</div><div class="nm-co">Alter Domus</div></div><div class="nm-row"><div class="nm-name">Mike Gregori</div><div class="nm-title">Head of North America</div><div class="nm-co">Alter Domus</div></div><div class="nm-row"><div class="nm-name">Staci Cohen</div><div class="nm-title">Global Process Owner - Real Assets</div><div class="nm-co">Alter Domus</div></div><div class="nm-row"><div class="nm-name">Michael Coyne</div><div class="nm-title">VP of Operations</div><div class="nm-co">AvalonBay Communities</div></div><div class="nm-row"><div class="nm-name">Amanda Gibb</div><div class="nm-title">Chief Technology &amp; Innovation Officer</div><div class="nm-co">BedRock Detroit</div></div><div class="nm-row"><div class="nm-name">Russ Holton</div><div class="nm-title">Director, Building Systems</div><div class="nm-co">BedRock Detroit</div></div><div class="nm-row"><div class="nm-name">Art McCann</div><div class="nm-title">SVP, Information Technology</div><div class="nm-co">Bell Partners</div></div><div class="nm-row"><div class="nm-name">Matt Moncrief</div><div class="nm-title">Director of Enterprise Solutions</div><div class="nm-co">Bell Partners</div></div><div class="nm-row"><div class="nm-name">Alireza Pourhashemi</div><div class="nm-title">VP, Project Management Office</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Brandon Bledsoe</div><div class="nm-title">Principal, Business Enablement &amp; Innovation</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Jim Carr</div><div class="nm-title">Chief Innovation Officer</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Kristine Stoner</div><div class="nm-title">Managing Director</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Corinna Bennett</div><div class="nm-title">Senior Vice President, National Client Solutions &amp; Production Operations</div><div class="nm-co">Berkadia</div></div><div class="nm-row"><div class="nm-name">Colin Joynt</div><div class="nm-title">SVP, CIO</div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Jim Whalen</div><div class="nm-title">CIO</div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Holden Latimer</div><div class="nm-title">Managing Director, Bridge MF / Fund Manager</div><div class="nm-co">Bridge Investment Group</div></div><div class="nm-row"><div class="nm-name">Scott Cardenas</div><div class="nm-title">Managing Director &amp; CTO</div><div class="nm-co">Bridge Investment Group</div></div><div class="nm-row"><div class="nm-name">Helane Stein</div><div class="nm-title">Senior Vice President, Chief Information Officer</div><div class="nm-co">Brixmor Property Group</div></div><div class="nm-row"><div class="nm-name">Louis Yu</div><div class="nm-title">Head of Data Science</div><div class="nm-co">Broadvail Capital Partners</div></div><div class="nm-row"><div class="nm-name">Katia Seanko</div><div class="nm-title">Senior Vice President and CIO</div><div class="nm-co">Cadillac Fairview</div></div><div class="nm-row"><div class="nm-name">Erik Rogers</div><div class="nm-title">SVP IT</div><div class="nm-co">Carmel Partners</div></div><div class="nm-row"><div class="nm-name">Aaron Altscher</div><div class="nm-title">VP, IT</div><div class="nm-co">Carr Properties</div></div><div class="nm-row"><div class="nm-name">Maja Sofic</div><div class="nm-title">1st Vice President Property Management Operations</div><div class="nm-co">CIM Group</div></div><div class="nm-row"><div class="nm-name">Sherina Garlick</div><div class="nm-title">Development Director, Application Systems</div><div class="nm-co">CIM Group</div></div><div class="nm-row"><div class="nm-name">Ken Kurz</div><div class="nm-title">Vice President IT and CIO</div><div class="nm-co">COPT Defense Properties</div></div><div class="nm-row"><div class="nm-name">Brandon Van Orden</div><div class="nm-title">SVP, Chief Information Officer</div><div class="nm-co">Cousins Properties</div></div><div class="nm-row"><div class="nm-name">Clayton Broemsen</div><div class="nm-title">VP, IT Infrastructure &amp; Technology</div><div class="nm-co">Cousins Properties</div></div><div class="nm-row"><div class="nm-name">Michael Lopez</div><div class="nm-title">Director of engineering</div><div class="nm-co">Cousins Properties</div></div><div class="nm-row"><div class="nm-name">Mike Cohen</div><div class="nm-title">Head of Investments</div><div class="nm-co">Dalfen Industrial LLC</div></div><div class="nm-row"><div class="nm-name">Farooz Alikhan</div><div class="nm-title">Managing Director, Information Technology</div><div class="nm-co">DivcoWest</div></div><div class="nm-row"><div class="nm-name">Harshit Shah</div><div class="nm-title">Chief Technology Officer</div><div class="nm-co">DivcoWest</div></div><div class="nm-row"><div class="nm-name">Steve Suriano</div><div class="nm-title">Senior Director of IT</div><div class="nm-co">DRA Advisors</div></div><div class="nm-row"><div class="nm-name">Susan Gerock</div><div class="nm-title">Chief Information Officer</div><div class="nm-co">Elme Communities (WashREIT)</div></div><div class="nm-row"><div class="nm-name">Virginia Love</div><div class="nm-title">Industry Principal</div><div class="nm-co">Entrata</div></div><div class="nm-row"><div class="nm-name">Lauren Zachok</div><div class="nm-title">Senior IT Project Manager</div><div class="nm-co">Equity Residential</div></div><div class="nm-row"><div class="nm-name">Ali Haidar</div><div class="nm-title">SVP, Global Real Estate Asset Management, Portfolio Management lead (Americas)</div><div class="nm-co">GIC</div></div><div class="nm-row"><div class="nm-name">Timothy Cook</div><div class="nm-title">VP, Intelligent Buildings</div><div class="nm-co">Goldman Sachs</div></div><div class="nm-row"><div class="nm-name">Adam Hastings</div><div class="nm-title">Global Head of Data &amp; Analytics</div><div class="nm-co">Hines Group</div></div><div class="nm-row"><div class="nm-name">Ilene Goldfine</div><div class="nm-title">Senior Vice President - Chief Digital Strategy Officer</div><div class="nm-co">Hines Group</div></div><div class="nm-row"><div class="nm-name">Jeannie Schneider</div><div class="nm-title">Chief Technology Officer</div><div class="nm-co">Hines Group</div></div><div class="nm-row"><div class="nm-name">Mili Popat</div><div class="nm-title">Sr. Dir, Enterprise Applications</div><div class="nm-co">Hines Group</div></div><div class="nm-row"><div class="nm-name">Laurent Grill</div><div class="nm-title">Partner</div><div class="nm-co">JLL Technologies</div></div><div class="nm-row"><div class="nm-name">Tom Taddeo</div><div class="nm-title">Executive Vice President &amp; CIO</div><div class="nm-co">Kimco Realty</div></div><div class="nm-row"><div class="nm-name">Joe Brown</div><div class="nm-title">Vice President, Building Technology &amp; Decarbonization Lead</div><div class="nm-co">KingSett Capital</div></div><div class="nm-row"><div class="nm-name">Wade Issa</div><div class="nm-title">VP of Innovation &amp; Data</div><div class="nm-co">Lurin Capital</div></div><div class="nm-row"><div class="nm-name">John Rincones</div><div class="nm-title">Director, Information Technology</div><div class="nm-co">Milhaus</div></div><div class="nm-row"><div class="nm-name">Austin Merkley</div><div class="nm-title">IT Director</div><div class="nm-co">Monday Properties</div></div><div class="nm-row"><div class="nm-name">Anibal Rodriguez</div><div class="nm-title">Director of Information Technology</div><div class="nm-co">NNN REIT</div></div><div class="nm-row"><div class="nm-name">Matthew Warner</div><div class="nm-title">Managing Director</div><div class="nm-co">NorthBridge Partners</div></div><div class="nm-row"><div class="nm-name">Sunder Pappu</div><div class="nm-title">SVP, Head of Technology Strategy</div><div class="nm-co">Northern Trust Corporation</div></div><div class="nm-row"><div class="nm-name">Todd Januzzi</div><div class="nm-title">Senior Vice President, CIO</div><div class="nm-co">Paramount Group</div></div><div class="nm-row"><div class="nm-name">Dale Johnston</div><div class="nm-title">Global CIO</div><div class="nm-co">PGIM Real Estate</div></div><div class="nm-row"><div class="nm-name">Robin Mesirow</div><div class="nm-title">Global Innovation</div><div class="nm-co">PGIM Real Estate</div></div><div class="nm-row"><div class="nm-name">Marcel Kanngiesser</div><div class="nm-title">Director, Real Estate Advisor</div><div class="nm-co">PricewaterhouseCoopers</div></div><div class="nm-row"><div class="nm-name">Sineesh Keshav</div><div class="nm-title">Chief Technology Officer</div><div class="nm-co">Prologis</div></div><div class="nm-row"><div class="nm-name">Heather Watts</div><div class="nm-title">SVP, IT</div><div class="nm-co">QuadReal Property Group</div></div><div class="nm-row"><div class="nm-name">Marcel Marra</div><div class="nm-title">Cyber Security &amp; Integration Vice President, Architecture</div><div class="nm-co">QuadReal Property Group</div></div><div class="nm-row"><div class="nm-name">Thano Lambrinos</div><div class="nm-title">SVP, Digital Buildings, Experiences &amp; Innovation</div><div class="nm-co">QuadReal Property Group</div></div><div class="nm-row"><div class="nm-name">Ninad Tambe</div><div class="nm-title">SVP, Enterprise Automation &amp; Data Architecture</div><div class="nm-co">Realty Income Corporation</div></div><div class="nm-row"><div class="nm-name">Wing Chau</div><div class="nm-title">BI Manager</div><div class="nm-co">Resia</div></div><div class="nm-row"><div class="nm-name">Denis Cekic</div><div class="nm-title">Manager of Automation and Application Development</div><div class="nm-co">Rose Associates</div></div><div class="nm-row"><div class="nm-name">Matt Boras</div><div class="nm-title">Managing Director, Head of RXR-Arden Digital Ventures (RADV)</div><div class="nm-co">RXR Realty</div></div><div class="nm-row"><div class="nm-name">Yael Urman</div><div class="nm-title">Chief Technology Officer</div><div class="nm-co">Silverstein Properties</div></div><div class="nm-row"><div class="nm-name">Joe Chiappetta</div><div class="nm-title">Senior VP &amp; Chief Technology Officer</div><div class="nm-co">Simon Property Group</div></div><div class="nm-row"><div class="nm-name">Laura LeFief</div><div class="nm-title">VP, IT</div><div class="nm-co">Taubman</div></div><div class="nm-row"><div class="nm-name">William Strong</div><div class="nm-title">COO &amp; CFO</div><div class="nm-co">Virtus Real Estate Capital (Almanac Portco)</div></div><div class="nm-row"><div class="nm-name">Andrew Weakland</div><div class="nm-title">Director, Systems Development</div><div class="nm-co">W. P. Carey Inc</div></div><div class="nm-row"><div class="nm-name">Paul Niser</div><div class="nm-title">Chief Technology Officer</div><div class="nm-co">Walton Street Capital</div></div><div class="nm-row"><div class="nm-name">Peter Kimmey</div><div class="nm-title">Principal, Technology</div><div class="nm-co">Warburg Pincus LLC</div></div><div class="nm-row"><div class="nm-name">David Franklin</div><div class="nm-title">Industry Principal</div><div class="nm-co">Woolbright Development Inc</div></div><div class="nm-row"><div class="nm-name">Hayden Hampton</div><div class="nm-title">Data Scientist / AI Developer</div><div class="nm-co">Woolbright Development Inc</div></div><div class="nm-row"><div class="nm-name">Luis Ramos</div><div class="nm-title">VP of Information Technology</div><div class="nm-co">Woolbright Development Inc</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-block" data-acc="rc25">
+    <div class="acc-head">
+      <div class="acc-yr">2025</div>
+      <div class="acc-event"><strong>Realcomm Savannah</strong> &middot; June 1&ndash;4, 2025 &middot; Cherre &amp; Dealpath cocktail reception at The Drayton Hotel</div>
+      <div class="acc-count"><strong>224</strong>senior contacts</div>
+      <div class="acc-toggle">+</div>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="acc-meta">Drayton Hotel cocktail reception contracted for 200 capacity (St. Neo&rsquo;s Brasserie + Vinyl Room). Below is the curated invite/target list of senior contacts from Cherre&rsquo;s tracking. 160 of these were marked as conference attendees in Cherre&rsquo;s post-event log.</div>
+        <div class="nm-list"><div class="nm-row"><div class="nm-name">Joseph Aamidor</div><div class="nm-title"></div><div class="nm-co">Aamidor Consulting</div></div><div class="nm-row"><div class="nm-name">0014W00002856YVQAY \#N/A</div><div class="nm-title">KS to follow up</div><div class="nm-co">Aaron Altscher 0014W00002856YVQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002cWaIJQA0 \#N/A</div><div class="nm-title"></div><div class="nm-co">Abhijeet Shrivastava 0014W00002cWaIJQA0</div></div><div class="nm-row"><div class="nm-name">Christopher Gilene</div><div class="nm-title">Global Head of Technology, Managing Director, Innovation</div><div class="nm-co">Affinius Capital</div></div><div class="nm-row"><div class="nm-name">Jim Wilmoth</div><div class="nm-title">SVP Business Applications</div><div class="nm-co">Affinius Capital</div></div><div class="nm-row"><div class="nm-name">Molly Cantu</div><div class="nm-title">Data Analyst</div><div class="nm-co">Affinius Capital</div></div><div class="nm-row"><div class="nm-name">Thomas Ochs</div><div class="nm-title">Sr VP</div><div class="nm-co">Affinius Capital</div></div><div class="nm-row"><div class="nm-name">Dan Bowering</div><div class="nm-title">Applications &amp; systems admin</div><div class="nm-co">Agree Realty</div></div><div class="nm-row"><div class="nm-name">Larry Kaufman</div><div class="nm-title">Chief Information Officer &amp; VP - Continuous Improvement</div><div class="nm-co">Agree Realty</div></div><div class="nm-row"><div class="nm-name">Perry Welch</div><div class="nm-title">CRO</div><div class="nm-co">Airwavz</div></div><div class="nm-row"><div class="nm-name">Greg Thomas</div><div class="nm-title">SVP, CTO</div><div class="nm-co">Alexandria Real Estate Equities</div></div><div class="nm-row"><div class="nm-name">0014W00002uSY7DQAW \#N/A</div><div class="nm-title"></div><div class="nm-co">Ali Hoss 0014W00002uSY7DQAW</div></div><div class="nm-row"><div class="nm-name">0014W00002856H2QAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Alireza Pourhashemi 0014W00002856H2QAI</div></div><div class="nm-row"><div class="nm-name">Travis Vokey</div><div class="nm-title">SVP, Technology &amp; Innovation</div><div class="nm-co">Allied Properties REIT</div></div><div class="nm-row"><div class="nm-name">Andrea Houghton</div><div class="nm-title">Global Head of Partner Success</div><div class="nm-co">Alpha Alternatives</div></div><div class="nm-row"><div class="nm-name">Dan Bassett</div><div class="nm-title">Partner, Client Segment Lead for Real Assets in North America</div><div class="nm-co">Alpha Alternatives</div></div><div class="nm-row"><div class="nm-name">Douglas Eaton</div><div class="nm-title">Director EPM Real Estate</div><div class="nm-co">Alpha Alternatives</div></div><div class="nm-row"><div class="nm-name">Marlena Badway</div><div class="nm-title">Associate Director</div><div class="nm-co">Alpha Alternatives</div></div><div class="nm-row"><div class="nm-name">Mike Ivey</div><div class="nm-title">Head of Real Assets Investment &amp; Portfolio Accounting</div><div class="nm-co">Alpha Alternatives</div></div><div class="nm-row"><div class="nm-name">Benay Kirk</div><div class="nm-title">Managing Director, Head of Financial &amp; Performance Reporting</div><div class="nm-co">Alter Domus</div></div><div class="nm-row"><div class="nm-name">Mike Gregori</div><div class="nm-title">Head of North America</div><div class="nm-co">Alter Domus</div></div><div class="nm-row"><div class="nm-name">Brandi Doucett</div><div class="nm-title">Marketing Manager - Events</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">David Nardella</div><div class="nm-title">Director of Multifamily Solutions</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">Erica Tabrizi</div><div class="nm-title">Senior Director</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">Jorge Blanco</div><div class="nm-title">CCO</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">Josh Davis</div><div class="nm-title">Account Manager</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">Kirby Siravo</div><div class="nm-title">Account Executive</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">Natalia Lundrigan</div><div class="nm-title">Manager</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">Paul Maloney</div><div class="nm-title">Solution Engineer</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">Sarah Struzzi</div><div class="nm-title">Partnerships</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">Shane Friedman</div><div class="nm-title">Presales  Consultant</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">Todd Klacik</div><div class="nm-title">VP - Market Insights and Service Providers</div><div class="nm-co">Altus Group</div></div><div class="nm-row"><div class="nm-name">0014W00002AOiP5QAL \#N/A</div><div class="nm-title">Sent email (Tama came over top already)</div><div class="nm-co">Amanda Gibb 0014W00002AOiP5QAL</div></div><div class="nm-row"><div class="nm-name">Sebastien Gouin-Davis</div><div class="nm-title">CEO</div><div class="nm-co">Amatis Controls/ Luum.io</div></div><div class="nm-row"><div class="nm-name">Brian Sheffron</div><div class="nm-title">VP of IT</div><div class="nm-co">American Realty Advisors</div></div><div class="nm-row"><div class="nm-name">0014W0000314rPRQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Andrew Rodgers 0014W0000314rPRQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002M2vnyQAB \#N/A</div><div class="nm-title"></div><div class="nm-co">Andrew Weakland 0014W00002M2vnyQAB</div></div><div class="nm-row"><div class="nm-name">0014W00002856IZQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Annie Draper 0014W00002856IZQAY</div></div><div class="nm-row"><div class="nm-name">0014W000028566zQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Anushka Grant 0014W000028566zQAA</div></div><div class="nm-row"><div class="nm-name">Elliot Kilham</div><div class="nm-title">VP</div><div class="nm-co">April Housing</div></div><div class="nm-row"><div class="nm-name">Townshend Young</div><div class="nm-title">Director, Sales</div><div class="nm-co">Aquicore</div></div><div class="nm-row"><div class="nm-name">0014W000028572EQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Archie Mahalingam 0014W000028572EQAQ</div></div><div class="nm-row"><div class="nm-name">Erica White</div><div class="nm-title">SVP of Technology and Strategic Initiatives</div><div class="nm-co">Article Student Living</div></div><div class="nm-row"><div class="nm-name">0014W00002GxgU2QAJ \#N/A</div><div class="nm-title">L.D. Followed up 5/22</div><div class="nm-co">Arv Gupta 0014W00002GxgU2QAJ</div></div><div class="nm-row"><div class="nm-name">001Rd000002QcDGIA0 \#N/A</div><div class="nm-title"></div><div class="nm-co">Ashly Poyer 001Rd000002QcDGIA0</div></div><div class="nm-row"><div class="nm-name">Michael Coyne</div><div class="nm-title">VP of Operations</div><div class="nm-co">AvalonBay Communities</div></div><div class="nm-row"><div class="nm-name">Kate Lewis</div><div class="nm-title">Chief Operating Officer, Data Intelligence Group</div><div class="nm-co">Balyasny Asset Management L.P.</div></div><div class="nm-row"><div class="nm-name">Jared Hamilton</div><div class="nm-title">Director</div><div class="nm-co">Barron Collier Companies</div></div><div class="nm-row"><div class="nm-name">Stuart Appley</div><div class="nm-title">Founder</div><div class="nm-co">Bay Tech Advisors</div></div><div class="nm-row"><div class="nm-name">Craig Hill</div><div class="nm-title">Director technology Advisory</div><div class="nm-co">BDO</div></div><div class="nm-row"><div class="nm-name">John Vandermolen</div><div class="nm-title">Sr. Manager Microsoft</div><div class="nm-co">BDO</div></div><div class="nm-row"><div class="nm-name">Wes Jarvis</div><div class="nm-title">Director</div><div class="nm-co">BDO</div></div><div class="nm-row"><div class="nm-name">Mike McConnell</div><div class="nm-title">SVP, Infrastructure and Operations</div><div class="nm-co">Beacon Capital Partners</div></div><div class="nm-row"><div class="nm-name">Amanda Gibb</div><div class="nm-title">Chief Technology &amp; Innovation Officer</div><div class="nm-co">BedRock Detroit</div></div><div class="nm-row"><div class="nm-name">Russ Holton</div><div class="nm-title">Director, Building Systems</div><div class="nm-co">BedRock Detroit</div></div><div class="nm-row"><div class="nm-name">Art McCann</div><div class="nm-title">SVP, Information Technology</div><div class="nm-co">Bell Partners</div></div><div class="nm-row"><div class="nm-name">Matt Moncrief</div><div class="nm-title">Director of Enterprise Solutions</div><div class="nm-co">Bell Partners</div></div><div class="nm-row"><div class="nm-name">0014W00002856TZQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Ben Grippi 0014W00002856TZQAY</div></div><div class="nm-row"><div class="nm-name">Alireza Pourhashemi</div><div class="nm-title">Vice President PMO</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Brandon Bledsoe</div><div class="nm-title">Principal, Business Enablement &amp; Innovation</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">David Westra</div><div class="nm-title">Director, Technology Success</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Doug Prichard</div><div class="nm-title">Vice President, Product Management</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Jim Carr</div><div class="nm-title">Chief Innovation Officer</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Kristine Stoner</div><div class="nm-title">Chief Information &amp; Technology Officer</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Corinna Bennett</div><div class="nm-title">Senior Vice President, National Client Solutions &amp; Production Operations</div><div class="nm-co">Berkadia</div></div><div class="nm-row"><div class="nm-name">Joshua Glastein</div><div class="nm-title">Principal</div><div class="nm-co">Berkshire</div></div><div class="nm-row"><div class="nm-name">0014W00002856f2QAA \#N/A</div><div class="nm-title">Sent email (Need LD to come over top)</div><div class="nm-co">Bhavana Devulapally 0014W00002856f2QAA</div></div><div class="nm-row"><div class="nm-name">0014W00002857GWQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Bill Bernabei 0014W00002857GWQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002856UEQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Bill Sechen 0014W00002856UEQAY</div></div><div class="nm-row"><div class="nm-name">Susan Rounds</div><div class="nm-title">Senior Managing Director, Operations</div><div class="nm-co">BKM Capital Partners</div></div><div class="nm-row"><div class="nm-name">Dominic Demarco</div><div class="nm-title">Senior Vice President</div><div class="nm-co">Blackstone</div></div><div class="nm-row"><div class="nm-name">John Fitzpatrick</div><div class="nm-title">Senior Managing Director, Chief Technology Officer, AAMT</div><div class="nm-co">Blackstone</div></div><div class="nm-row"><div class="nm-name">Beth Bernstein</div><div class="nm-title">Real Estate Partner</div><div class="nm-co">Blank Rome LLP</div></div><div class="nm-row"><div class="nm-name">Colin Joynt</div><div class="nm-title">SVP, CIO</div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Jim Whalen</div><div class="nm-title">CIO</div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Joshua Coles</div><div class="nm-title">Director Information Security</div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Mark Greco</div><div class="nm-title">VP, IT Infrastructure Services</div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Michael Dobbins</div><div class="nm-title">Regional engineer</div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Justin Segal</div><div class="nm-title">President</div><div class="nm-co">Boxer Property</div></div><div class="nm-row"><div class="nm-name">0014W00002856H2QAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Brandon Bledsoe 0014W00002856H2QAI</div></div><div class="nm-row"><div class="nm-name">0014W00002856wWQAQ \#N/A</div><div class="nm-title">Sent email (Tama came over top already)</div><div class="nm-co">Brandon Van Orden 0014W00002856wWQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002snZr1QAE \#N/A</div><div class="nm-title"></div><div class="nm-co">Brett Fisher 0014W00002snZr1QAE</div></div><div class="nm-row"><div class="nm-name">0014W00002uTLBRQA4 \#N/A</div><div class="nm-title"></div><div class="nm-co">Brett Hitt 0014W00002uTLBRQA4</div></div><div class="nm-row"><div class="nm-name">0014W00002uUy5lQAC \#N/A</div><div class="nm-title"></div><div class="nm-co">Brian Oswald 0014W00002uUy5lQAC</div></div><div class="nm-row"><div class="nm-name">0014W00002Gxg43QAB \#N/A</div><div class="nm-title"></div><div class="nm-co">Brian Schwartz 0014W00002Gxg43QAB</div></div><div class="nm-row"><div class="nm-name">0014W00002856RBQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Brian Sheffron 0014W00002856RBQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002856klQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Brian Sutherland 0014W00002856klQAA</div></div><div class="nm-row"><div class="nm-name">Dipesh Shah</div><div class="nm-title">Acting CTO</div><div class="nm-co">Bridge Industrial</div></div><div class="nm-row"><div class="nm-name">Holden Latimer</div><div class="nm-title">Managing Director, Bridge MF / Fund Manager</div><div class="nm-co">Bridge Investment Group</div></div><div class="nm-row"><div class="nm-name">Michael Doran</div><div class="nm-title">Vice President</div><div class="nm-co">Bridge Investment Group</div></div><div class="nm-row"><div class="nm-name">Scott Cardenas</div><div class="nm-title">Managing Director &amp; CTO</div><div class="nm-co">Bridge Investment Group</div></div><div class="nm-row"><div class="nm-name">Helane Stein</div><div class="nm-title">Senior Vice President, Chief Information Officer</div><div class="nm-co">Brixmor</div></div><div class="nm-row"><div class="nm-name">Christina Sanfilippo</div><div class="nm-title">Solutions Vice President, Information Systems</div><div class="nm-co">Broadstone Real Estate</div></div><div class="nm-row"><div class="nm-name">Louis Yu</div><div class="nm-title">Head of Data Science</div><div class="nm-co">Broadvail Capital Partners</div></div><div class="nm-row"><div class="nm-name">Antonios Georgiou</div><div class="nm-title"></div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Ari Stamboel</div><div class="nm-title">Vice President of Technology</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Derek Veren</div><div class="nm-title">Senior Director, Information Technology</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Erin Kelly</div><div class="nm-title"></div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Hill Williams</div><div class="nm-title">Senior Application Support Analyst</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Ilya Feldman</div><div class="nm-title"></div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Jack Harnett</div><div class="nm-title">Director</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Lucius Mims</div><div class="nm-title">Director of Information Security</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Michael Daschle</div><div class="nm-title">Senior Vice President Sustainability</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Mike Maxfield</div><div class="nm-title">Senior Vice President, Application Portfolio Management &amp; Project Management Office</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Olani Oshuntuyi</div><div class="nm-title">VP, Data &amp; Analytics</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Sara Kane</div><div class="nm-title">Vice President, Business Applications</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Soheil Pourhashemi</div><div class="nm-title">Executive Vice President \</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Steve Stapley</div><div class="nm-title">SVP, CTO – Retail</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Tony Schwingel</div><div class="nm-title">Senior Director, Infrastructure &amp; Operations</div><div class="nm-co">Brookfield</div></div><div class="nm-row"><div class="nm-name">Brian Vaughn</div><div class="nm-title">Co Founder</div><div class="nm-co">Building Intelligence Group</div></div><div class="nm-row"><div class="nm-name">0014W00002857TTQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Cecilia Li 0014W00002857TTQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002uUxwjQAC \#N/A</div><div class="nm-title"></div><div class="nm-co">Charles Buscarino 0014W00002uUxwjQAC</div></div><div class="nm-row"><div class="nm-name">Yes Curbline</div><div class="nm-title">Senior VP, Information Technology</div><div class="nm-co">Cherre</div></div><div class="nm-row"><div class="nm-name">Yes Jamestown</div><div class="nm-title">VP, Innovation Ops</div><div class="nm-co">Cherre</div></div><div class="nm-row"><div class="nm-name">Yes Kimco</div><div class="nm-title">Executive Vice President &amp; CIO</div><div class="nm-co">Cherre</div></div><div class="nm-row"><div class="nm-name">Yes SmartCentres</div><div class="nm-title">Senior Vice President, IT</div><div class="nm-co">Cherre</div></div><div class="nm-row"><div class="nm-name">0014W00002856klQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Chris Barbier 0014W00002856klQAA</div></div><div class="nm-row"><div class="nm-name">0014W000028569uQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Chris Blackman 0014W000028569uQAA</div></div><div class="nm-row"><div class="nm-name">0014W00002wOfzZQAS \#N/A</div><div class="nm-title"></div><div class="nm-co">Chris Panto 0014W00002wOfzZQAS</div></div><div class="nm-row"><div class="nm-name">0014W00002uTLGfQAO \#N/A</div><div class="nm-title"></div><div class="nm-co">Chris Riccobono 0014W00002uTLGfQAO</div></div><div class="nm-row"><div class="nm-name">0014W00003CfKO9QAN \#N/A</div><div class="nm-title"></div><div class="nm-co">Christopher Gilene 0014W00003CfKO9QAN</div></div><div class="nm-row"><div class="nm-name">0014W00002856wWQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Clayton Broemsen 0014W00002856wWQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002856Y3QAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Colin Joynt 0014W00002856Y3QAI</div></div><div class="nm-row"><div class="nm-name">0014W000028562eQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Dale Johnston 0014W000028562eQAA</div></div><div class="nm-row"><div class="nm-name">0014W00002uT4bMQAS \#N/A</div><div class="nm-title"></div><div class="nm-co">David Fisher 0014W00002uT4bMQAS</div></div><div class="nm-row"><div class="nm-name">0014W00002snTRtQAM \#N/A</div><div class="nm-title"></div><div class="nm-co">David Nardella 0014W00002snTRtQAM</div></div><div class="nm-row"><div class="nm-name">0014W00002Qgv6dQAB \#N/A</div><div class="nm-title"></div><div class="nm-co">Denis Cekic 0014W00002Qgv6dQAB</div></div><div class="nm-row"><div class="nm-name">0014W00002856XcQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Derek Veren 0014W00002856XcQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002GxgTFQAZ \#N/A</div><div class="nm-title"></div><div class="nm-co">Devang Amin 0014W00002GxgTFQAZ</div></div><div class="nm-row"><div class="nm-name">0014W00002GB2NgQAL \#N/A</div><div class="nm-title"></div><div class="nm-co">Devon Newton 0014W00002GB2NgQAL</div></div><div class="nm-row"><div class="nm-name">001Rd00000PPxWNIA1 \#N/A</div><div class="nm-title">KS to follow up</div><div class="nm-co">Dom Beveridge 001Rd00000PPxWNIA1</div></div><div class="nm-row"><div class="nm-name">0014W0000318CdYQAU \#N/A</div><div class="nm-title"></div><div class="nm-co">Don Bleaney 0014W0000318CdYQAU</div></div><div class="nm-row"><div class="nm-name">0014W00002mCUHWQA4 \#N/A</div><div class="nm-title"></div><div class="nm-co">Don Oldham 0014W00002mCUHWQA4</div></div><div class="nm-row"><div class="nm-name">0014W00002uTMdIQAW \#N/A</div><div class="nm-title"></div><div class="nm-co">Donny Walker 0014W00002uTMdIQAW</div></div><div class="nm-row"><div class="nm-name">0014W00002uTLJSQA4 \#N/A</div><div class="nm-title"></div><div class="nm-co">Edi Demaj 0014W00002uTLJSQA4</div></div><div class="nm-row"><div class="nm-name">0014W00002856DKQAY \#N/A</div><div class="nm-title">Sent email (Tama came over top already)</div><div class="nm-co">Edward Hinchey 0014W00002856DKQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002wRtxlQAC \#N/A</div><div class="nm-title"></div><div class="nm-co">Erin DeFrieze 0014W00002wRtxlQAC</div></div><div class="nm-row"><div class="nm-name">0014W00002uTLJSQA4 \#N/A</div><div class="nm-title"></div><div class="nm-co">Etrit Demaj 0014W00002uTLJSQA4</div></div><div class="nm-row"><div class="nm-name">0014W00002wRtphQAC \#N/A</div><div class="nm-title"></div><div class="nm-co">Farukh Aslam 0014W00002wRtphQAC</div></div><div class="nm-row"><div class="nm-name">0014W00002GAVaKQAX \#N/A</div><div class="nm-title"></div><div class="nm-co">Gary Bailey 0014W00002GAVaKQAX</div></div><div class="nm-row"><div class="nm-name">0014W00002856s5QAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Gerry Hamilton 0014W00002856s5QAA</div></div><div class="nm-row"><div class="nm-name">0014W00002GAVaKQAX \#N/A</div><div class="nm-title"></div><div class="nm-co">Goutham Vulpala 0014W00002GAVaKQAX</div></div><div class="nm-row"><div class="nm-name">0014W00002856TZQAY \#N/A</div><div class="nm-title">Sent email (Tama came over top already)</div><div class="nm-co">Greg Carey 0014W00002856TZQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002857a6QAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Helane Stein 0014W00002857a6QAA</div></div><div class="nm-row"><div class="nm-name">0014W000028568SQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Howard Berger 0014W000028568SQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002856IZQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Ilene Goldfine 0014W00002856IZQAY</div></div><div class="nm-row"><div class="nm-name">001Rd000008ZWjaIAG \#N/A</div><div class="nm-title"></div><div class="nm-co">Jack Harnett 001Rd000008ZWjaIAG</div></div><div class="nm-row"><div class="nm-name">0014W00002857NyQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Jaime del Alamo 0014W00002857NyQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002Tk9PcQAJ \#N/A</div><div class="nm-title"></div><div class="nm-co">Jason Heymann 0014W00002Tk9PcQAJ</div></div><div class="nm-row"><div class="nm-name">0014W00002856WEQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Jay Richard-Yu 0014W00002856WEQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002uT8yhQAC \#N/A</div><div class="nm-title"></div><div class="nm-co">Jay Wratten 0014W00002uT8yhQAC</div></div><div class="nm-row"><div class="nm-name">0014W000028569KQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Jeremy Poteet 0014W000028569KQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002857NyQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Jesse Michael 0014W00002857NyQAI</div></div><div class="nm-row"><div class="nm-name">0014W0000314oJSQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Jim Baldwin 0014W0000314oJSQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002856H2QAI \#N/A</div><div class="nm-title">L.D. Followed up with Jim 5/22</div><div class="nm-co">Jim Carr 0014W00002856H2QAI</div></div><div class="nm-row"><div class="nm-name">0014W00002TlM83QAF \#N/A</div><div class="nm-title"></div><div class="nm-co">Jim Valkanas 0014W00002TlM83QAF</div></div><div class="nm-row"><div class="nm-name">0014W00002856Y3QAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Jim Whalen 0014W00002856Y3QAI</div></div><div class="nm-row"><div class="nm-name">0014W000028568SQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Jim Young 0014W000028568SQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002TksgRQAR \#N/A</div><div class="nm-title"></div><div class="nm-co">Joe Brown 0014W00002TksgRQAR</div></div><div class="nm-row"><div class="nm-name">0014W00002856klQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Joe Consolo 0014W00002856klQAA</div></div><div class="nm-row"><div class="nm-name">0014W00002TksiRQAR \#N/A</div><div class="nm-title"></div><div class="nm-co">John Chung 0014W00002TksiRQAR</div></div><div class="nm-row"><div class="nm-name">0014W00002856JfQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Jon Crosier 0014W00002856JfQAI</div></div><div class="nm-row"><div class="nm-name">001Rd000003xNLUIA2 \#N/A</div><div class="nm-title"></div><div class="nm-co">Jon Morris 001Rd000003xNLUIA2</div></div><div class="nm-row"><div class="nm-name">0014W00002856IzQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Jonathan Flaherty 0014W00002856IzQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002snTRtQAM \#N/A</div><div class="nm-title"></div><div class="nm-co">Jorge Blanco 0014W00002snTRtQAM</div></div><div class="nm-row"><div class="nm-name">0014W0000314vT5QAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Joseph Aamidor 0014W0000314vT5QAI</div></div><div class="nm-row"><div class="nm-name">0014W00002856R3QAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Joseph Martino 0014W00002856R3QAI</div></div><div class="nm-row"><div class="nm-name">0014W00002wQLUlQAO \#N/A</div><div class="nm-title"></div><div class="nm-co">Josh Levine 0014W00002wQLUlQAO</div></div><div class="nm-row"><div class="nm-name">0014W00002856s5QAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Joshua Neutel 0014W00002856s5QAA</div></div><div class="nm-row"><div class="nm-name">0014W00002857GWQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Julie Miner 0014W00002857GWQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002857JCQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Justin Segal 0014W00002857JCQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002uR9tgQAC \#N/A</div><div class="nm-title"></div><div class="nm-co">Justin Williams 0014W00002uR9tgQAC</div></div><div class="nm-row"><div class="nm-name">0014W00002857GWQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Kapil Lahoti 0014W00002857GWQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002GxgTFQAZ \#N/A</div><div class="nm-title">Sent email (Tama came over top already)</div><div class="nm-co">Ken Kurz 0014W00002GxgTFQAZ</div></div><div class="nm-row"><div class="nm-name">0014W00002856JfQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Khanh Nguyen 0014W00002856JfQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002856H2QAI \#N/A</div><div class="nm-title">Grant to Follow up</div><div class="nm-co">Kristine Stoner 0014W00002856H2QAI</div></div><div class="nm-row"><div class="nm-name">0014W00002856IbQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Liz Peacock 0014W00002856IbQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002GxgYTQAZ \#N/A</div><div class="nm-title">Email sent to Luis.</div><div class="nm-co">Luis Ramos 0014W00002GxgYTQAZ</div></div><div class="nm-row"><div class="nm-name">0014W00002uTSqcQAG \#N/A</div><div class="nm-title"></div><div class="nm-co">Marc Petock 0014W00002uTSqcQAG</div></div><div class="nm-row"><div class="nm-name">0014W000028572EQAQ \#N/A</div><div class="nm-title">N/A</div><div class="nm-co">Marcel Marra 0014W000028572EQAQ</div></div><div class="nm-row"><div class="nm-name">0014W000028572EQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Mardos Davidian 0014W000028572EQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002857acQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Marlena Badway 0014W00002857acQAA</div></div><div class="nm-row"><div class="nm-name">0014W00002856Y3QAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Matthew Sexton 0014W00002856Y3QAI</div></div><div class="nm-row"><div class="nm-name">0014W00002856qCQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Michael Coyne 0014W00002856qCQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002856IZQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Michael Izzo 0014W00002856IZQAY</div></div><div class="nm-row"><div class="nm-name">0014W0000285749QAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Michael Sroka 0014W0000285749QAA</div></div><div class="nm-row"><div class="nm-name">0014W0000315mHmQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Mike Harrison 0014W0000315mHmQAI</div></div><div class="nm-row"><div class="nm-name">0014W00003I0YVeQAN \#N/A</div><div class="nm-title"></div><div class="nm-co">Mike Maxfield 0014W00003I0YVeQAN</div></div><div class="nm-row"><div class="nm-name">0014W000028576OQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Neil Ross 0014W000028576OQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002856GWQAY \#N/A</div><div class="nm-title">Sent email (Tama come over top already)</div><div class="nm-co">Nicholas Stello 0014W00002856GWQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002856UiQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Nick Romito 0014W00002856UiQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002856tPQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Omar Tabba 0014W00002856tPQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002856kSQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Patrick Ghilani 0014W00002856kSQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002856klQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Paul Yount 0014W00002856klQAA</div></div><div class="nm-row"><div class="nm-name">0014W00002GB26WQAT \#N/A</div><div class="nm-title"></div><div class="nm-co">Porter Bellew 0014W00002GB26WQAT</div></div><div class="nm-row"><div class="nm-name">0014W00002TjlxNQAR \#N/A</div><div class="nm-title"></div><div class="nm-co">Prabin Kanel 0014W00002TjlxNQAR</div></div><div class="nm-row"><div class="nm-name">0014W00002cWWrkQAG \#N/A</div><div class="nm-title"></div><div class="nm-co">Rob Murchison 0014W00002cWWrkQAG</div></div><div class="nm-row"><div class="nm-name">0014W00002857NyQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Robert Fitzgerald 0014W00002857NyQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002Gxg22QAB \#N/A</div><div class="nm-title"></div><div class="nm-co">Robert Mackey 0014W00002Gxg22QAB</div></div><div class="nm-row"><div class="nm-name">0014W00002856klQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Robert Teel 0014W00002856klQAA</div></div><div class="nm-row"><div class="nm-name">0014W00002AOiP5QAL \#N/A</div><div class="nm-title"></div><div class="nm-co">Russ Holton 0014W00002AOiP5QAL</div></div><div class="nm-row"><div class="nm-name">0014W00002GxgTFQAZ \#N/A</div><div class="nm-title"></div><div class="nm-co">Ryan Blanc 0014W00002GxgTFQAZ</div></div><div class="nm-row"><div class="nm-name">0014W000028568SQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Sarah Bemporad 0014W000028568SQAQ</div></div><div class="nm-row"><div class="nm-name">0014W000028570rQAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Scott Cardenas 0014W000028570rQAA</div></div><div class="nm-row"><div class="nm-name">0014W00002uUy5lQAC \#N/A</div><div class="nm-title"></div><div class="nm-co">Scott Cochrane 0014W00002uUy5lQAC</div></div><div class="nm-row"><div class="nm-name">001Rd000000W0BRIA0 \#N/A</div><div class="nm-title"></div><div class="nm-co">Seth Zuskin 001Rd000000W0BRIA0</div></div><div class="nm-row"><div class="nm-name">0014W00002856IzQAI \#N/A</div><div class="nm-title">Sent email (Tama came over top already)</div><div class="nm-co">Simon Okunev 0014W00002856IzQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002cWX2iQAG \#N/A</div><div class="nm-title"></div><div class="nm-co">Steven Burgos 0014W00002cWX2iQAG</div></div><div class="nm-row"><div class="nm-name">001Rd00000K09npIAB \#N/A</div><div class="nm-title">KS to follow up</div><div class="nm-co">Stuart Appley 001Rd00000K09npIAB</div></div><div class="nm-row"><div class="nm-name">0014W00002857DGQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Sunder Pappu 0014W00002857DGQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002856rXQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Susan Gerock 0014W00002856rXQAQ</div></div><div class="nm-row"><div class="nm-name">001Rd000003BupGIAS \#N/A</div><div class="nm-title"></div><div class="nm-co">Ted Maulucci 001Rd000003BupGIAS</div></div><div class="nm-row"><div class="nm-name">0014W00002856kSQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Terry Keller 0014W00002856kSQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002Tk13OQAR \#N/A</div><div class="nm-title"></div><div class="nm-co">Terry Wood 0014W00002Tk13OQAR</div></div><div class="nm-row"><div class="nm-name">0014W000028572EQAQ \#N/A</div><div class="nm-title">KS to follow up</div><div class="nm-co">Thano Lambrinos 0014W000028572EQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002856IzQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Thomas Karounos 0014W00002856IzQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002856NDQAY \#N/A</div><div class="nm-title">L.D. Followed up 5/22</div><div class="nm-co">Timothy Cook 0014W00002856NDQAY</div></div><div class="nm-row"><div class="nm-name">0014W00002857NyQAI \#N/A</div><div class="nm-title"></div><div class="nm-co">Traci Doane 0014W00002857NyQAI</div></div><div class="nm-row"><div class="nm-name">0014W00002fr1k6QAA \#N/A</div><div class="nm-title"></div><div class="nm-co">Travis Vokey 0014W00002fr1k6QAA</div></div><div class="nm-row"><div class="nm-name">0014W00002uUxyeQAC \#N/A</div><div class="nm-title"></div><div class="nm-co">Trevor Morrison 0014W00002uUxyeQAC</div></div><div class="nm-row"><div class="nm-name">0014W00002856kSQAQ \#N/A</div><div class="nm-title"></div><div class="nm-co">Vijay Anand 0014W00002856kSQAQ</div></div><div class="nm-row"><div class="nm-name">0014W00002uUyKVQA0 \#N/A</div><div class="nm-title"></div><div class="nm-co">Wayne Kim 0014W00002uUyKVQA0</div></div><div class="nm-row"><div class="nm-name">0014W00002cYvpKQAS \#N/A</div><div class="nm-title">KS to follow up</div><div class="nm-co">Whitney Kidd 0014W00002cYvpKQAS</div></div><div class="nm-row"><div class="nm-name">0014W00002856PUQAY \#N/A</div><div class="nm-title"></div><div class="nm-co">Yael Urman 0014W00002856PUQAY</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-block" data-acc="rc24">
+    <div class="acc-head">
+      <div class="acc-yr">2024</div>
+      <div class="acc-event"><strong>Realcomm Tampa</strong> &middot; June 18&ndash;21, 2024 &middot; TPG pre-event dinner, RealTalk Founders Dinner, advisory council</div>
+      <div class="acc-count"><strong>55</strong>tier-1 contacts</div>
+      <div class="acc-toggle">+</div>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="acc-meta">Tier-1 invite/target list across Cherre&rsquo;s hosted activities: pre-event dinner at TPG, RealTalk Founders Dinner at Oak &amp; Ola, private room sessions, advisory council members. Tier rating reflects Cherre&rsquo;s account prioritization at time of event.</div>
+        <div class="nm-list"><div class="nm-row"><div class="nm-name">Christopher Gilene</div><div class="nm-title">Global Head of Technology &amp; Innovation</div><div class="nm-co">Affinius Capital</div></div><div class="nm-row"><div class="nm-name">Pete Schow</div><div class="nm-title"></div><div class="nm-co">Affinius Capital</div></div><div class="nm-row"><div class="nm-name">Amanda Gibb</div><div class="nm-title">Chief Technology &amp; Innovation Officer</div><div class="nm-co">Bedrock Detroit</div></div><div class="nm-row"><div class="nm-name">Alireza Pourhashemi</div><div class="nm-title">VP, Project Management Office</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Jim Carr</div><div class="nm-title">Chief Innovation Officer</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Kristine Stoner</div><div class="nm-title">Managing Director</div><div class="nm-co">BentallGreenOak</div></div><div class="nm-row"><div class="nm-name">Richard Ferrino</div><div class="nm-title">Global Chief Data Officer</div><div class="nm-co">Blackstone</div></div><div class="nm-row"><div class="nm-name">Ben Myers</div><div class="nm-title"></div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Colin Joynt</div><div class="nm-title">SVP, CIO</div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Jim Whalen</div><div class="nm-title">CIO</div><div class="nm-co">Boston Properties</div></div><div class="nm-row"><div class="nm-name">Justin Segal</div><div class="nm-title"></div><div class="nm-co">Boxer Property</div></div><div class="nm-row"><div class="nm-name">Scott Cardenas</div><div class="nm-title">Managing Director &amp; CTO</div><div class="nm-co">Bridge Investment Group</div></div><div class="nm-row"><div class="nm-name">Sean Nealon</div><div class="nm-title"></div><div class="nm-co">Brookfield Properties</div></div><div class="nm-row"><div class="nm-name">Soheil Pourhashemi</div><div class="nm-title"></div><div class="nm-co">Brookfield Properties</div></div><div class="nm-row"><div class="nm-name">Robb Napolitano</div><div class="nm-title"></div><div class="nm-co">Brooksville</div></div><div class="nm-row"><div class="nm-name">Sam Raghavachari</div><div class="nm-title">Head of Technology</div><div class="nm-co">Cabot Properties</div></div><div class="nm-row"><div class="nm-name">Karen Jalon</div><div class="nm-title">VP, Sustainability, Energy, Smart Technology</div><div class="nm-co">Cadillac Fairview</div></div><div class="nm-row"><div class="nm-name">Katia Saenko</div><div class="nm-title"></div><div class="nm-co">Cadillac Fairview</div></div><div class="nm-row"><div class="nm-name">Sandeep Dave</div><div class="nm-title"></div><div class="nm-co">CBRE</div></div><div class="nm-row"><div class="nm-name">Janet Eaton</div><div class="nm-title"></div><div class="nm-co">CIM Group</div></div><div class="nm-row"><div class="nm-name">Brandon Van Orden</div><div class="nm-title">SVP, Chief Information Officer</div><div class="nm-co">Cousins Properties</div></div><div class="nm-row"><div class="nm-name">Susan Gerock</div><div class="nm-title">Chief Information Officer</div><div class="nm-co">Elme Communities (WashREIT)</div></div><div class="nm-row"><div class="nm-name">Denis Cekic</div><div class="nm-title">Manager of Automation and Application Development</div><div class="nm-co">Empire State Realty Trust</div></div><div class="nm-row"><div class="nm-name">Sandy Jacolow</div><div class="nm-title"></div><div class="nm-co">Empire State Realty Trust</div></div><div class="nm-row"><div class="nm-name">Mikki Ward</div><div class="nm-title"></div><div class="nm-co">EQ Office</div></div><div class="nm-row"><div class="nm-name">Simon Streeter</div><div class="nm-title"></div><div class="nm-co">First Capital REIT</div></div><div class="nm-row"><div class="nm-name">Fred DuBois</div><div class="nm-title">Sr. Director of Business Systems Applications</div><div class="nm-co">First Industrial Realty Trust</div></div><div class="nm-row"><div class="nm-name">Clint Osteen</div><div class="nm-title"></div><div class="nm-co">Granite Properties</div></div><div class="nm-row"><div class="nm-name">Niraj Patel</div><div class="nm-title"></div><div class="nm-co">Greystone &amp; Co</div></div><div class="nm-row"><div class="nm-name">Kevin Kincaid</div><div class="nm-title"></div><div class="nm-co">Grosvenor Group</div></div><div class="nm-row"><div class="nm-name">Bill Sechen</div><div class="nm-title"></div><div class="nm-co">Harrison Street Real Estate Capital</div></div><div class="nm-row"><div class="nm-name">Ilene Goldfine</div><div class="nm-title">Senior Vice President - Chief Digital Strategy Officer</div><div class="nm-co">Hines Group</div></div><div class="nm-row"><div class="nm-name">Michael Izzo</div><div class="nm-title">VP of Carbon Strategy</div><div class="nm-co">Hines Group</div></div><div class="nm-row"><div class="nm-name">Ian Feagin</div><div class="nm-title"></div><div class="nm-co">Jamestown</div></div><div class="nm-row"><div class="nm-name">Jeremy Poteet</div><div class="nm-title"></div><div class="nm-co">JBG Smith Properties</div></div><div class="nm-row"><div class="nm-name">Benjamin Berookhim</div><div class="nm-title"></div><div class="nm-co">JPMorgan Chase &amp; Co.</div></div><div class="nm-row"><div class="nm-name">Bayron Lopez Pineda</div><div class="nm-title"></div><div class="nm-co">Kilroy Realty Corporation</div></div><div class="nm-row"><div class="nm-name">Khanh Nguyen</div><div class="nm-title"></div><div class="nm-co">Kilroy Realty Corporation</div></div><div class="nm-row"><div class="nm-name">Tom Taddeo</div><div class="nm-title">Executive Vice President &amp; CIO</div><div class="nm-co">Kimco Realty</div></div><div class="nm-row"><div class="nm-name">Ed Gallaga</div><div class="nm-title"></div><div class="nm-co">Kite Realty</div></div><div class="nm-row"><div class="nm-name">Sach Diwan</div><div class="nm-title"></div><div class="nm-co">LaSalle Investment Management</div></div><div class="nm-row"><div class="nm-name">Brad Sill</div><div class="nm-title"></div><div class="nm-co">MAA</div></div><div class="nm-row"><div class="nm-name">Tom Birdsall</div><div class="nm-title"></div><div class="nm-co">Macerich</div></div><div class="nm-row"><div class="nm-name">Robert Stark</div><div class="nm-title"></div><div class="nm-co">MAPP</div></div><div class="nm-row"><div class="nm-name">Kerry Perez Hefferman</div><div class="nm-title"></div><div class="nm-co">Microsoft</div></div><div class="nm-row"><div class="nm-name">John Chung</div><div class="nm-title"></div><div class="nm-co">Morguard</div></div><div class="nm-row"><div class="nm-name">Todd Januzzi</div><div class="nm-title">Senior Vice President, CIO</div><div class="nm-co">Paramount Group</div></div><div class="nm-row"><div class="nm-name">Dale Johnston</div><div class="nm-title">Global CIO</div><div class="nm-co">PGIM Real Estate</div></div><div class="nm-row"><div class="nm-name">Gary Bailey</div><div class="nm-title"></div><div class="nm-co">Phillips Edison &amp; Co</div></div><div class="nm-row"><div class="nm-name">Thano Lambrinos</div><div class="nm-title">SVP, Digital Buildings, Experiences &amp; Innovation</div><div class="nm-co">Quadreal Property Group</div></div><div class="nm-row"><div class="nm-name">Joe Chiappetta</div><div class="nm-title">Senior VP &amp; Chief Technology Officer</div><div class="nm-co">Simon Property Group</div></div><div class="nm-row"><div class="nm-name">Talia Fine</div><div class="nm-title"></div><div class="nm-co">Tanger Outlets</div></div><div class="nm-row"><div class="nm-name">Nick Covello</div><div class="nm-title"></div><div class="nm-co">The John Buck Company</div></div><div class="nm-row"><div class="nm-name">Neil Ross</div><div class="nm-title"></div><div class="nm-co">Walmart</div></div><div class="nm-row"><div class="nm-name">Paul Niser</div><div class="nm-title">Chief Technology Officer</div><div class="nm-co">Walton Street Capital</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE 30 -->
+<section class="section" id="the30">
+  <div class="kicker">The 30</div>
+  <div class="section-title">Who Cherre sits down with</div>
+  <div class="section-sub">A private meeting room at an industry conference is rare. Filling it with thirty pre-scheduled 30-minute meetings against named C-level contacts is rarer. Below are Cherre&rsquo;s own year-over-year meeting counts at Realcomm, drawn from the internal post-event tracker. The 2024 calendar appears below to illustrate the density.</div>
+
+  <div class="cal-stats">
+    <div class="cstat2"><div class="lbl">2024 Tampa</div><div class="val">33</div><div class="sub">Meeting room + booth + pre-event dinners. 28 revenue ops, 4 partner, 1 client.</div></div>
+    <div class="cstat2"><div class="lbl">2025 Savannah</div><div class="val">44</div><div class="sub">+33% YoY. 31 revenue ops, 13 partner meetings.</div></div>
+    <div class="cstat2"><div class="lbl">2026 San Diego</div><div class="val">~40</div><div class="sub">Pre-event &middot; 17 confirmed + pipeline closing now, 10 days from event.</div></div>
+  </div>
+
+  <div class="section-title" style="font-size:20px;margin-top:32px;margin-bottom:6px">Realcomm 2024 &middot; meeting room calendar, Day 1 (June 20)</div>
+  <div class="section-sub" style="margin-bottom:16px">Eight straight hours of pre-scheduled 30-minute sit-downs in Cherre&rsquo;s private meeting room #411. Each slot is one named institutional contact. This is one day of one event.</div>
+
+  <div class="cal-grid">
+    <div class="cal-row cheader">
+      <div>Time</div>
+      <div>Day 1 &middot; June 20</div>
+      <div>Day 2 &middot; June 21</div>
+    </div>
+    <div class="cal-row"><div class="cal-time">10:00 AM</div><div class="cal-slot filled"><strong>Bridge Investment Group</strong><span class="ctitle">Scott Cardenas, CTO</span></div><div class="cal-slot filled"><strong>Dealcloud</strong><span class="ctitle">Frank Spadafora</span></div></div>
+    <div class="cal-row"><div class="cal-time">10:30 AM</div><div class="cal-slot filled"><strong>PCCP</strong><span class="ctitle">Meina Zhi, SVP Business Applications</span></div><div class="cal-slot filled"><strong>Townhouse</strong><span class="ctitle">Craig Lombard</span></div></div>
+    <div class="cal-row"><div class="cal-time">11:00 AM</div><div class="cal-slot filled"><strong>Kimco</strong><span class="ctitle">Tom Taddeo (EVP/CIO), Ken Fisher, Shelton Smith</span></div><div class="cal-slot filled"><strong>Retransform</strong><span class="ctitle">Rohan, Lynn, Bhavin</span></div></div>
+    <div class="cal-row"><div class="cal-time">11:30 AM</div><div class="cal-slot filled"><strong>SITE Centers + Brixmor</strong><span class="ctitle">Kim Scharf, Helane Stein</span></div><div class="cal-slot filled"><strong>BPG Retail</strong><span class="ctitle">Steve Stapley</span></div></div>
+    <div class="cal-row"><div class="cal-time">12:00 PM</div><div class="cal-slot filled"><strong>BGO</strong><span class="ctitle">Kris Stoner</span></div><div class="cal-slot filled"><strong>WSS Associates</strong><span class="ctitle">Fergus Owens</span></div></div>
+    <div class="cal-row"><div class="cal-time">12:30 PM</div><div class="cal-slot filled"><strong>Remit Consulting</strong><span class="ctitle">Lorna and Andrew</span></div><div class="cal-slot empty">Lunch / open</div></div>
+    <div class="cal-row"><div class="cal-time">1:00 PM</div><div class="cal-slot filled"><strong>QuadReal</strong><span class="ctitle">Sonny Thind, Heather Watts, Marcel Marra, Allyson</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">1:30 PM</div><div class="cal-slot filled"><strong>EDENS</strong><span class="ctitle">Marguerite Westbrook (SVP Technology), Amanda Kirton</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">2:00 PM</div><div class="cal-slot filled"><strong>CIM Group</strong><span class="ctitle">Janet Eaton</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">2:30 PM</div><div class="cal-slot filled"><strong>REstack</strong><span class="ctitle">Anthony Paes-Braga</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">3:00 PM</div><div class="cal-slot filled"><strong>Cousins Properties</strong><span class="ctitle">Brandon Van Orden, Clayton Broemsen</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">3:30 PM</div><div class="cal-slot filled"><strong>EastGroup Properties</strong><span class="ctitle">Brian Laird, CIO</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">4:00 PM</div><div class="cal-slot filled"><strong>Walton Street Capital</strong><span class="ctitle">Paul Niser, CTO</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">4:30 PM</div><div class="cal-slot filled"><strong>First Capital REIT</strong><span class="ctitle">Simon Streeter, CIO</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">5:00 PM</div><div class="cal-slot filled"><strong>Ventas</strong><span class="ctitle">Bhavana Devulapally, CIO</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">5:30 PM</div><div class="cal-slot filled"><strong>Bedrock Detroit</strong><span class="ctitle">Amanda Gibb</span></div><div class="cal-slot empty">&mdash;</div></div>
+    <div class="cal-row"><div class="cal-time">9:30 AM</div><div class="cal-slot empty">&mdash;</div><div class="cal-slot filled"><strong>Empire State Realty Trust</strong><span class="ctitle">Sandy Jacolow, Denis Cekic (Head of App Dev, Data Lake, AI)</span></div></div>
+  </div>
+  <div class="cal-note">Plus pre-event sessions on June 18-19: TPG dinner with Jeremy Poteet (JBG Smith), Chris Gilene (Affinius), Gregg Haverstick (RealFoundations) &middot; RealTalk Founders Dinner at Oak &amp; Ola &middot; QuadReal and Federal Realty (Porter Bellew, SVP CIO) private sessions in Room 401. This same model runs at every Realcomm. The 2025 and 2026 calendars are equally dense.</div>
+</section>
+
+<!-- RELATIONSHIPS -->
+<section class="section" id="relationships">
+  <div class="kicker">The Relationships</div>
+  <div class="section-title">Who Cherre is in the room with</div>
+  <div class="section-sub">A sample of institutional accounts where Cherre is face-to-face with named senior leadership across multiple Realcomm conferences. Grouped by category. The full version would extend across forty to fifty accounts.</div>
+
+  <div class="rel-grid">
+
+    <div class="rel-cat">REITs &middot; Public</div>
+
+    <div class="rel-card">
+      <div class="rel-name">Boston Properties (BXP)</div>
+      <div class="rel-events">Realcomm 2024 &middot; Realcomm 2026</div>
+      <div class="rel-contacts"><strong>Colin Joynt</strong>, SVP, CIO &middot; <strong>Jim Whalen</strong>, CIO &middot; Matthew Sexton, Ben Myers, Sue Ko</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Federal Realty Trust</div>
+      <div class="rel-events">Realcomm 2024 &middot; RETCON 2025 &middot; Current client</div>
+      <div class="rel-contacts"><strong>Porter Bellew</strong>, SVP, CIO</div>
+    </div>
+
+    <div class="rel-card featured">
+      <div class="rel-name">Cousins Properties</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025 &middot; 2026 (three consecutive years)</div>
+      <div class="rel-contacts"><strong>Brandon Van Orden</strong>, CIO (promoted 2026) &middot; <strong>Clayton Broemsen</strong>, VP IT Infrastructure &amp; Operations</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Kimco Realty</div>
+      <div class="rel-events">Realcomm 2024 &middot; MNDA executed</div>
+      <div class="rel-contacts"><strong>Tom Taddeo</strong>, EVP &amp; CIO &middot; Ken Fisher &middot; Shelton Smith &middot; Scott Moskowitz</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Brixmor</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025</div>
+      <div class="rel-contacts"><strong>Helane Stein</strong>, SVP, CIO</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Kilroy Realty</div>
+      <div class="rel-events">Realcomm 2025</div>
+      <div class="rel-contacts"><strong>Khanh Nguyen</strong> &middot; <strong>Bayron Lopez Pineda</strong> &middot; Jon, Oleg</div>
+    </div>
+
+    <div class="rel-cat">Capital Allocators &middot; Asset Managers</div>
+
+    <div class="rel-card featured">
+      <div class="rel-name">QuadReal Property Group</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025 &middot; RETCON 2025 &middot; Realcomm 2026</div>
+      <div class="rel-contacts"><strong>Marcel Marra</strong>, VP, Integration Architecture &middot; <strong>Charles Loui-Ying</strong>, VP, IT &middot; <strong>Thano Lambrinos</strong>, SVP Digital Buildings &middot; <strong>Heather Watts</strong>, SVP IT &middot; Sonny Thind, Kamran, Aruchchuna</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">PGIM Real Estate</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2026 VIP</div>
+      <div class="rel-contacts"><strong>Dale Johnston</strong>, Global CIO &middot; <strong>Robin Mesirow</strong>, Global Innovation</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">BentallGreenOak (BGO)</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025 &middot; 2026</div>
+      <div class="rel-contacts"><strong>Jim Carr</strong>, Chief Innovation Officer &middot; <strong>Kristine Stoner</strong>, Managing Director &middot; Alireza Pourhashemi, Ben Cooper, Brandon Bledsoe</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Affinius Capital</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025 &middot; 2026</div>
+      <div class="rel-contacts"><strong>Christopher Gilene</strong>, Global Head of Technology &amp; Innovation (MD) &middot; Pete Schow &middot; Jim Wilmoth, SVP Business Applications</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Bridge Investment Group</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025</div>
+      <div class="rel-contacts"><strong>Scott Cardenas</strong>, MD &amp; CTO &middot; Holden Latimer, MD &middot; Michael Doran, VP</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Blackstone</div>
+      <div class="rel-events">Realcomm 2024</div>
+      <div class="rel-contacts"><strong>Richard Ferrino</strong>, Global Chief Data Officer &middot; John Fitzpatrick, Senior MD &amp; CTO AAMT &middot; Josh Kogan, Dominic Demarco</div>
+    </div>
+
+    <div class="rel-cat">Owner-Operators &middot; Developers</div>
+
+    <div class="rel-card">
+      <div class="rel-name">Hines</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025 &middot; 2026</div>
+      <div class="rel-contacts"><strong>Ilene Goldfine</strong>, SVP &amp; Chief Digital Strategy Officer &middot; Adam Hastings &middot; Jeannie Schneider &middot; Mita Butschek</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">JBG Smith Properties</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025 &middot; 2026</div>
+      <div class="rel-contacts"><strong>Jeremy Poteet</strong>, EVP, Technology &amp; Information Strategy</div>
+    </div>
+
+    <div class="rel-card featured">
+      <div class="rel-name">CIM Group</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025 &middot; Won/Client</div>
+      <div class="rel-contacts"><strong>Janet Eaton</strong>, VP &amp; CTO &middot; Sherina Garlick, Maja Sofic, Felisha Miller</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">EDENS</div>
+      <div class="rel-events">Realcomm 2024 &middot; RETCON 2025</div>
+      <div class="rel-contacts"><strong>Marguerite Westbrook</strong>, SVP, Technology &middot; Amanda Kirton, Director Business Systems</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Brookfield Properties</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025 &middot; 2026</div>
+      <div class="rel-contacts"><strong>Soheil Pourhashemi</strong>, VP Business Technology / CIO Roundtable Co-Chair &middot; Mike Maxfield, SVP App Portfolio Mgmt &middot; Sara Kane, VP Business Applications &middot; Jack Harnett</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Empire State Realty Trust</div>
+      <div class="rel-events">Realcomm 2024</div>
+      <div class="rel-contacts"><strong>Sandy Jacolow</strong>, CTO &middot; <strong>Denis Cekic</strong>, Head of App Dev / Data Lake / AI</div>
+    </div>
+
+    <div class="rel-cat">Service Providers &middot; Ecosystem</div>
+
+    <div class="rel-card">
+      <div class="rel-name">CBRE</div>
+      <div class="rel-events">Realcomm 2024 &middot; 2025 &middot; Current client</div>
+      <div class="rel-contacts"><strong>Sandeep Dave</strong>, CDIO &middot; Julie Miner &middot; Drew DePriest &middot; McKinlay Jeannis &middot; Philip Thrift, Smart Buildings Director</div>
+    </div>
+
+    <div class="rel-card">
+      <div class="rel-name">Alter Domus</div>
+      <div class="rel-events">Realcomm 2025 &middot; partner discussions</div>
+      <div class="rel-contacts"><strong>Alex Droste</strong>, Global Real Estate Platform Leader &middot; <strong>Mike Gregori</strong>, Head of North America &middot; Benay Kirk, MD Head of Financial &amp; Performance &middot; Staci Cohen</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="section" id="closing">
+  <div class="kicker">The Position</div>
+  <div class="closing-statement">Most vendors host a dinner for twenty. Cherre convenes two hundred and meets thirty of them one-on-one in the same week. Three years running.</div>
+  <div class="closing-body">That capability is not a marketing budget you can spend your way into. It is the consequence of three years of consistent presence, executive-level relationships, and trust earned at the senior leadership of every category that matters in institutional real assets: REITs, capital allocators, asset managers, developers, and the service ecosystem that surrounds them.</div>
+  <div class="closing-body">For a strategic acquirer evaluating Cherre, the question is not whether this position has commercial value. It is whether they want to absorb the position or compete against the company that holds it.</div>
+</section>
+
+<footer>
+  <span>Confidential &nbsp;&middot;&nbsp; Three-Year Industry Footprint &nbsp;&middot;&nbsp; Q2 2026</span>
+  <span>Cherre</span>
+</footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // Accordion toggles
+  document.querySelectorAll('.acc-block').forEach(function(block){
+    var head = block.querySelector('.acc-head');
+    var body = block.querySelector('.acc-body');
+    var toggle = block.querySelector('.acc-toggle');
+    head.addEventListener('click', function(){
+      var isOpen = block.classList.contains('open');
+      if (isOpen) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.getBoundingClientRect();
+        body.style.maxHeight = '0px';
+        block.classList.remove('open');
+        toggle.textContent = '+';
+      } else {
+        block.classList.add('open');
+        toggle.textContent = '−';
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.addEventListener('transitionend', function handler(){
+          body.removeEventListener('transitionend', handler);
+          if (block.classList.contains('open')) {
+            body.style.maxHeight = 'none';
+          }
+        });
+      }
+    });
+  });
+
+  // scrollspy
+  var navEls = document.querySelectorAll('.np');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        navEls.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, {rootMargin:'-50px 0px -60% 0px'});
+  ['cover','matrix','the200','the30','relationships','closing'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+});
+</script>
+</body>
+</html>
