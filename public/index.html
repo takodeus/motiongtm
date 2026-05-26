@@ -50,26 +50,17 @@ nav{display:flex;overflow-x:auto}
 .quote-item{padding:14px 20px;border:1px solid var(--bdl);background:var(--wh);font-family:var(--f);font-style:italic;font-weight:300;font-size:15px;color:var(--tx2);line-height:1.6}
 .quote-item .q-attr{font-family:var(--s);font-style:normal;font-size:11px;letter-spacing:.08em;color:var(--tx3);margin-top:8px;font-weight:400}
 
-/* MATRIX — box colors + activity dots */
-.matrix-legend{margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--bdl);font-size:11px;color:var(--tx3);letter-spacing:.04em}
-.legend-group{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
-.legend-group:last-child{margin-bottom:0}
-.legend-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx4);font-weight:500;margin-bottom:6px}
+/* MATRIX */
+.matrix-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--bdl);font-size:11px;color:var(--tx3);letter-spacing:.04em}
 .lg-item{display:flex;align-items:center;gap:7px}
 .lg-sw{width:14px;height:14px;border:1px solid var(--bd);display:inline-block}
-/* Box swatches */
-.lg-sw.box-sponsored{background:#23A98E;border-color:#1A7C68}
-.lg-sw.box-attendance{background:var(--ch-bg);border-color:var(--ch-bd)}
-.lg-sw.box-planned{background:#FFFBF0;border-color:var(--go-bd);border-style:dashed}
-.lg-sw.box-absent{background:#F0EDE6;border-color:var(--bd);opacity:.5}
-/* Dot swatches */
-.lg-dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
-.lg-dot.dot-booth{background:#23A98E}
-.lg-dot.dot-speaking{background:var(--ch)}
-.lg-dot.dot-mtgroom{background:#E8890C}
-.lg-dot.dot-vip{background:#3B82F6}
-.lg-dot.dot-realtalk{background:#7C3AED}
-
+.lg-sw.detailed{background:var(--aq);border-color:var(--aq-dim)}
+.lg-sw.sponsored{background:var(--ch-bg);border-color:var(--ch-bd)}
+.lg-sw.spoke{background:var(--ch);border-color:var(--ch-dim)}
+.lg-sw.hosted{background:var(--go-bg);border-color:var(--go-bd)}
+.lg-sw.attended{background:#E8E4DC;opacity:.5}
+.lg-sw.planned{background:var(--go-bg);border-color:var(--go-bd);border-style:dashed}
+.lg-sw.absent{background:transparent;border-color:var(--bd);border-style:dashed}
 .cal-list{margin-top:4px}
 .cal-cat{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ch);font-weight:500;margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--bdl)}
 .cal-cat:first-child{margin-top:0}
@@ -77,30 +68,29 @@ nav{display:flex;overflow-x:auto}
 .cal-item:last-child{border-bottom:none}
 .cal-item__name{font-family:var(--f);font-weight:400;font-size:18px;color:var(--tx);line-height:1.25}
 .cal-years{display:flex;gap:10px;flex-wrap:wrap}
-
-/* Year boxes — 4 states */
 .cal-year{flex:1;min-width:160px;display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--wh);border:1px solid var(--bd);border-left:2px solid var(--bd);transition:background .15s}
 .cal-year:hover{background:#F8F6F0}
-.cal-year.box-sponsored{background:rgba(35,169,142,.06);border-color:#B0DDD2;border-left:3px solid #23A98E}
-.cal-year.box-attendance{background:var(--ch-bg);border-color:var(--ch-bd);border-left:3px solid var(--ch-bd)}
-.cal-year.box-planned{background:#FFFBF0;border-color:var(--go-bd);border-left:3px solid var(--go-bd);border-style:dashed;border-left-style:dashed}
-.cal-year.box-absent{background:#F5F3EF;border-color:var(--bd);border-style:dotted;opacity:.45}
-
-/* Activity dots row */
-.dot-row{display:flex;gap:5px;margin-top:4px;flex-wrap:wrap;align-items:center}
-.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.dot.d-booth{background:#23A98E}
-.dot.d-speaking{background:var(--ch)}
-.dot.d-mtgroom{background:#E8890C}
-.dot.d-vip{background:#3B82F6}
-.dot.d-realtalk{background:#7C3AED}
-
+.cal-year.detailed{background:rgba(35,169,142,.05);border-left-color:var(--aq-dim)}
+.cal-year.spoke{border-left-color:var(--ch)}
+.cal-year.sponsored{border-left-color:var(--ch-bd)}
+.cal-year.hosted{background:var(--go-bg);border-left-color:var(--go-bd)}
+.cal-year.attended{opacity:.55}
+.cal-year.planned{background:var(--go-bg);border-left-color:var(--go-bd);border-style:dashed;border-width:1px;border-left-width:2px}
+.cal-year.absent{opacity:.45;background:transparent;border-style:dashed}
+.cal-year .sw{width:10px;height:10px;border-radius:50%;border:1px solid var(--bd);flex-shrink:0;margin-top:5px}
+.cal-year .sw.detailed{background:var(--aq);border-color:var(--aq-dim)}
+.cal-year .sw.sponsored{background:var(--ch-bg);border-color:var(--ch-bd)}
+.cal-year .sw.spoke{background:var(--ch);border-color:var(--ch-dim)}
+.cal-year .sw.hosted{background:var(--go);border-color:var(--go-dim)}
+.cal-year .sw.attended{background:#C9C5BC;border-color:#A8A49C}
+.cal-year .sw.planned{background:var(--go-bg);border-color:var(--go-dim);border-style:dashed}
+.cal-year .sw.absent{background:transparent;border-style:dashed}
 .cal-year .yr-body{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
 .cal-year .yr{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--tx3);font-weight:500}
 .cal-year .label{font-size:12.5px;color:var(--tx2);font-weight:400;line-height:1.4}
-.cal-year.box-sponsored .label{color:var(--aq-dim);font-weight:500}
-.cal-year.box-absent .label{font-style:italic;color:var(--tx3)}
-.cal-year.box-planned .label{color:var(--go-dim);font-weight:500}
+.cal-year.detailed .label{color:var(--aq-dim);font-weight:500}
+.cal-year.absent .label{font-style:italic;color:var(--tx3)}
+.cal-year.planned .label{color:var(--go-dim);font-weight:500}
 .cal-year .loc{font-size:10px;color:var(--tx3);letter-spacing:.04em;margin-top:1px}
 .cal-footnote{margin-top:32px;padding-top:18px;border-top:1px solid var(--bdl);font-size:13px;color:var(--tx3);line-height:1.7;font-style:italic;max-width:820px}
 .cal-footnote strong{color:var(--tx2);font-weight:500;font-style:normal}
@@ -225,6 +215,31 @@ nav{display:flex;overflow-x:auto}
 footer{margin-top:40px;padding:20px 0;border-top:1px solid var(--bd);display:flex;justify-content:space-between}
 footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
 
+
+/* activation tabs + carousels */
+.act-tabs{display:flex;gap:0;border-bottom:2px solid var(--bd);margin-bottom:0}
+.act-tab{padding:12px 24px;font-size:12px;letter-spacing:.08em;color:var(--tx3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;font-weight:500}
+.act-tab:hover{color:var(--tx)}
+.act-tab.active{color:var(--ch);border-bottom-color:var(--ch)}
+.act-panel{display:none}
+.act-panel.active{display:block}
+.act-carousel-wrap{position:relative;overflow:hidden;margin-top:0;border:1px solid var(--bd);border-top:none;background:var(--wh)}
+.act-carousel-track{display:flex;transition:transform .4s ease}
+.act-slide{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;padding:24px 20px 16px}
+.act-slide img{max-width:100%;max-height:480px;object-fit:contain;border-radius:2px}
+.act-slide-label{margin-top:12px;font-size:13px;color:var(--tx2);text-align:center;line-height:1.5}
+.act-tag{display:inline-block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:2px 8px;margin-right:8px;border-radius:2px;vertical-align:middle}
+.act-tag.lineage{background:var(--ch-bg);color:var(--ch-dim)}
+.act-tag.legacy{background:var(--go-bg);color:var(--go-dim)}
+.act-tag.consistency{background:var(--aq-bg);color:var(--aq-dim)}
+.act-nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border:1px solid var(--bd);background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--tx2);transition:background .15s,border-color .15s;z-index:2}
+.act-nav:hover{background:var(--ch-bg);border-color:var(--ch-bd);color:var(--ch)}
+.act-prev{left:12px}
+.act-next{right:12px}
+.act-dots{display:flex;justify-content:center;gap:8px;padding:14px 0}
+.act-dot{width:8px;height:8px;border-radius:50%;border:1px solid var(--bd);background:transparent;cursor:pointer;transition:all .15s}
+.act-dot.active{background:var(--ch);border-color:var(--ch)}
+
 @media (max-width:768px){
   .cal-item{grid-template-columns:1fr;gap:10px}
   .cal-years{flex-direction:column}
@@ -233,6 +248,7 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
   .room-stats{grid-template-columns:1fr 1fr}
   .gtm-boxes{grid-template-columns:1fr}
   .carousel-slide img{max-height:320px}
+  .act-tab{padding:10px 14px;font-size:11px}
   .room-table th,.room-table td{padding:9px 12px}
   .room-modal{padding:20px 10px}
   .room-modal-panel{max-height:calc(100vh - 40px)}
@@ -280,216 +296,143 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
   <div class="section-sub">Every event of consequence in institutional real assets and partner ecosystem across the past three years. Sponsorship, speaking placements, private meeting rooms, and hosted events. The pattern below shows a company that has stopped attending events and started being them.</div>
 
   <div class="matrix-legend">
-    <div class="legend-label">Box colors</div>
-    <div class="legend-group">
-      <div class="lg-item"><span class="lg-sw box-sponsored"></span><span>Sponsored</span></div>
-      <div class="lg-item"><span class="lg-sw box-attendance"></span><span>Attendance only</span></div>
-      <div class="lg-item"><span class="lg-sw box-planned"></span><span>Planned (not yet occurred)</span></div>
-      <div class="lg-item"><span class="lg-sw box-absent"></span><span>Not present</span></div>
-    </div>
-    <div class="legend-label" style="margin-top:10px">Activity dots</div>
-    <div class="legend-group">
-      <div class="lg-item"><span class="lg-dot dot-booth"></span><span>Booth</span></div>
-      <div class="lg-item"><span class="lg-dot dot-speaking"></span><span>Speaking placement</span></div>
-      <div class="lg-item"><span class="lg-dot dot-mtgroom"></span><span>Private meeting room</span></div>
-      <div class="lg-item"><span class="lg-dot dot-vip"></span><span>VIP event</span></div>
-      <div class="lg-item"><span class="lg-dot dot-realtalk"></span><span>RealTalk presence</span></div>
-    </div>
+    <div class="lg-item"><span class="lg-sw detailed"></span><span>Sponsored + private meeting room</span></div>
+    <div class="lg-item"><span class="lg-sw hosted"></span><span>Hosted private event</span></div>
+    <div class="lg-item"><span class="lg-sw spoke"></span><span>Speaking placement</span></div>
+    <div class="lg-item"><span class="lg-sw sponsored"></span><span>Sponsored</span></div>
+    <div class="lg-item"><span class="lg-sw planned"></span><span>Planned (not yet occurred)</span></div>
+    <div class="lg-item"><span class="lg-sw absent"></span><span>Not present</span></div>
   </div>
 
   <div class="cal-list">
 
     <div class="cal-cat">Industry</div>
 
-    <!-- Realcomm -->
     <div class="cal-item">
       <div class="cal-item__name">Realcomm</div>
       <div class="cal-years">
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span><span class="dot d-speaking"></span><span class="dot d-mtgroom"></span><span class="dot d-vip"></span><span class="dot d-realtalk"></span></div><span class="loc">Tampa</span></div></div>
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span><span class="dot d-speaking"></span><span class="dot d-mtgroom"></span><span class="dot d-vip"></span><span class="dot d-realtalk"></span></div><span class="loc">Savannah &middot; #StayCurious Queen of Hearts card drop &middot; Wonderland booth &middot; Drayton Hotel reception</span></div></div>
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span><span class="dot d-speaking"></span><span class="dot d-mtgroom"></span><span class="dot d-vip"></span><span class="dot d-realtalk"></span></div><span class="loc">San Diego</span></div></div>
+        <div class="cal-year detailed"><span class="sw detailed"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Meeting room + speak</span><span class="loc">Tampa</span></div></div>
+        <div class="cal-year detailed"><span class="sw detailed"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Meeting room + reception + speak</span><span class="loc">Savannah</span><span class="loc">#StayCurious Queen of Hearts card drop &middot; Wonderland booth &middot; Drayton Hotel reception</span></div></div>
+        <div class="cal-year detailed"><span class="sw detailed"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Meeting room + VIP event + speak</span><span class="loc">San Diego &middot; Planned</span></div></div>
       </div>
     </div>
 
-    <!-- RETCON -->
     <div class="cal-item">
       <div class="cal-item__name">RETCON</div>
       <div class="cal-years">
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-speaking"></span><span class="dot d-mtgroom"></span></div></div></div>
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-speaking"></span><span class="dot d-mtgroom"></span><span class="dot d-vip"></span><span class="dot d-realtalk"></span></div><span class="loc">Las Vegas &middot; #StayCurious campaign debut &middot; Ace of Spades guerrilla card launch &middot; 32 pre-event meetings booked</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-speaking"></span><span class="dot d-mtgroom"></span></div><span class="loc">OntoloTea speakeasy &middot; Cherre Data Mart extension &middot; Spill the OntoloTea activation &middot; 28 1:1 meetings booked</span></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Speak</span></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Meeting room + speak</span><span class="loc">Las Vegas</span><span class="loc">#StayCurious campaign debut &middot; Ace of Spades guerrilla card launch &middot; 32 pre-event meetings booked</span></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored + speak</span><span class="loc">OntoloTea speakeasy &middot; Cherre Data Mart extension &middot; Spill the OntoloTea activation &middot; 28 1:1 meetings booked</span></div></div>
       </div>
     </div>
 
-    <!-- CREtech New York -->
     <div class="cal-item">
       <div class="cal-item__name">CREtech New York</div>
       <div class="cal-years">
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span><span class="dot d-speaking"></span><span class="dot d-mtgroom"></span></div></div></div>
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span><span class="dot d-speaking"></span><span class="dot d-mtgroom"></span><span class="dot d-vip"></span><span class="dot d-realtalk"></span></div><span class="loc">#StayCurious Queen of Diamonds card drop &middot; NYC kiosk activation &middot; Agent STUDIO launch &middot; 46 live meetings (118% of target)</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-booth"></span><span class="dot d-speaking"></span><span class="dot d-mtgroom"></span><span class="dot d-vip"></span></div></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Speak</span></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored + speak</span><span class="loc">#StayCurious Queen of Diamonds card drop &middot; NYC kiosk activation &middot; Agent STUDIO launch &middot; 46 live meetings (118% of target)</span></div></div>
+        <div class="cal-year planned"><span class="sw planned"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored + speak</span><span class="loc">Planned</span></div></div>
       </div>
     </div>
 
-    <!-- NMHC Annual -->
     <div class="cal-item">
       <div class="cal-item__name">NMHC Annual</div>
       <div class="cal-years">
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2024</span><span class="label">Attendance</span></div></div>
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2025</span><span class="label">Attendance</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
       </div>
     </div>
 
-    <!-- NMHC Research & Data Analytics Forum -->
-    <div class="cal-item">
-      <div class="cal-item__name">NMHC Research &amp; Data Analytics Forum</div>
-      <div class="cal-years">
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2025</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span></div></div>
-      </div>
-    </div>
-
-    <!-- RETTC OPTECH -->
     <div class="cal-item">
       <div class="cal-item__name">RETTC OPTECH</div>
       <div class="cal-years">
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span></div></div></div>
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span></div><span class="loc">Cherre Data Mart grocery store activation</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-booth"></span></div></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span><span class="loc">Cherre Data Mart grocery store activation</span></div></div>
+        <div class="cal-year planned"><span class="sw planned"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span><span class="loc">Planned</span></div></div>
       </div>
     </div>
 
-    <!-- ULI -->
     <div class="cal-item">
       <div class="cal-item__name">ULI</div>
       <div class="cal-years">
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2024</span><span class="label">Attendance</span></div></div>
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2025</span><span class="label">Attendance</span><div class="dot-row"><span class="dot d-speaking"></span></div></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-speaking"></span></div></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Speak</span></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Speak</span></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Speak</span></div></div>
       </div>
     </div>
 
-    <!-- Blueprint -->
     <div class="cal-item">
       <div class="cal-item__name">Blueprint</div>
       <div class="cal-years">
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span></div></div></div>
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2025</span><span class="label">Attendance</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-booth"></span><span class="dot d-mtgroom"></span></div></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
       </div>
     </div>
 
-    <!-- NCREIF Fall Event -->
-    <div class="cal-item">
-      <div class="cal-item__name">NCREIF Fall Event</div>
-      <div class="cal-years">
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2025</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span></div></div>
-      </div>
-    </div>
-
-    <!-- Toronto Real Estate Forum -->
-    <div class="cal-item">
-      <div class="cal-item__name">Toronto Real Estate Forum</div>
-      <div class="cal-years">
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2025</span><span class="label">Attendance</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
-      </div>
-    </div>
-
-    <!-- OSCRE Council of 100 -->
-    <div class="cal-item">
-      <div class="cal-item__name">OSCRE Council of 100</div>
-      <div class="cal-years">
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2024</span><span class="label">Attendance</span></div></div>
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2025</span><span class="label">Attendance</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span></div></div>
-      </div>
-    </div>
-
-    <!-- Expo Real -->
     <div class="cal-item">
       <div class="cal-item__name">Expo Real</div>
       <div class="cal-years">
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2024</span><span class="label">Attendance</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2025</span><span class="label">Attendance</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
-      </div>
-    </div>
-
-    <!-- PropTech Connect -->
-    <div class="cal-item">
-      <div class="cal-item__name">PropTech Connect</div>
-      <div class="cal-years">
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2024</span><span class="label">Attendance</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2025</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Hosted</span></div></div>
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Hosted</span></div></div>
+        <div class="cal-year planned"><span class="sw planned"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Hosted</span><span class="loc">Planned</span></div></div>
       </div>
     </div>
 
     <div class="cal-cat">Partner &middot; Ecosystem</div>
 
-    <!-- MRI SKO -->
     <div class="cal-item">
       <div class="cal-item__name">MRI SKO</div>
       <div class="cal-years">
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2024</span><span class="label">Attendance</span></div></div>
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2025</span><span class="label">Attendance</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span></div></div>
       </div>
     </div>
 
-    <!-- MRI Ascend -->
     <div class="cal-item">
       <div class="cal-item__name">MRI Ascend</div>
       <div class="cal-years">
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span></div></div></div>
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-booth"></span><span class="dot d-speaking"></span><span class="dot d-realtalk"></span></div></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-booth"></span></div></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year sponsored"><span class="sw sponsored"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span></div></div>
+        <div class="cal-year planned"><span class="sw planned"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Sponsored</span><span class="loc">Planned</span></div></div>
       </div>
     </div>
 
-    <!-- PwC EMEA Real Estate Summit -->
     <div class="cal-item">
       <div class="cal-item__name">PwC EMEA Real Estate Summit</div>
       <div class="cal-years">
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-vip"></span></div><span class="loc">Paris</span></div></div>
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2025</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Hosted</span><span class="loc">Paris</span></div></div>
+        <div class="cal-year absent"><span class="sw absent"></span><div class="yr-body"><span class="yr">2025</span><span class="label">&mdash;</span></div></div>
+        <div class="cal-year planned"><span class="sw planned"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Hosted</span><span class="loc">Planned</span></div></div>
       </div>
     </div>
 
-    <!-- Alpha Alternatives EMEA -->
     <div class="cal-item">
       <div class="cal-item__name">Alpha Alternatives EMEA</div>
       <div class="cal-years">
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-vip"></span></div></div></div>
+        <div class="cal-year absent"><span class="sw absent"></span><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Hosted</span></div></div>
+        <div class="cal-year planned"><span class="sw planned"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Hosted</span><span class="loc">Planned</span></div></div>
       </div>
     </div>
 
-    <!-- EisnerAmper Real Estate Summit -->
     <div class="cal-item">
       <div class="cal-item__name">EisnerAmper Real Estate Summit</div>
       <div class="cal-years">
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-absent"><div class="yr-body"><span class="yr">2025</span><span class="label">&mdash;</span></div></div>
-        <div class="cal-year box-attendance"><div class="yr-body"><span class="yr">2026</span><span class="label">Attendance</span><div class="dot-row"><span class="dot d-speaking"></span></div></div></div>
+        <div class="cal-year absent"><span class="sw absent"></span><div class="yr-body"><span class="yr">2024</span><span class="label">&mdash;</span></div></div>
+        <div class="cal-year absent"><span class="sw absent"></span><div class="yr-body"><span class="yr">2025</span><span class="label">&mdash;</span></div></div>
+        <div class="cal-year spoke"><span class="sw spoke"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Speak</span></div></div>
       </div>
     </div>
 
-    <!-- FTI Executive Briefings -->
     <div class="cal-item">
       <div class="cal-item__name">FTI Executive Briefings</div>
       <div class="cal-years">
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2024</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-speaking"></span><span class="dot d-vip"></span></div></div></div>
-        <div class="cal-year box-sponsored"><div class="yr-body"><span class="yr">2025</span><span class="label">Sponsored</span><div class="dot-row"><span class="dot d-speaking"></span><span class="dot d-vip"></span></div></div></div>
-        <div class="cal-year box-planned"><div class="yr-body"><span class="yr">2026</span><span class="label">Planned</span><div class="dot-row"><span class="dot d-speaking"></span><span class="dot d-vip"></span></div></div></div>
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2024</span><span class="label">Hosted</span></div></div>
+        <div class="cal-year hosted"><span class="sw hosted"></span><div class="yr-body"><span class="yr">2025</span><span class="label">Hosted</span></div></div>
+        <div class="cal-year planned"><span class="sw planned"></span><div class="yr-body"><span class="yr">2026</span><span class="label">Hosted</span><span class="loc">Planned</span></div></div>
       </div>
     </div>
 
@@ -904,29 +847,135 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
   </div>
 </section>
 
-<!-- LIGHTBOX CAROUSEL -->
+<!-- ACTIVATIONS -->
 <section class="section" id="gallery">
-  <div class="kicker">Campaign Gallery</div>
-  <div class="section-title">The activations in frame</div>
-  <div class="carousel-wrap" id="imgCarousel">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide"><img src="images/IMG_4174.jpeg" alt="Cherre booth activation - conference crowd"></div>
-      <div class="carousel-slide"><img src="images/IMG_5157__1_.PNG" alt="Cherre Data Mart grocery store booth"></div>
-      <div class="carousel-slide"><img src="images/IMG_0056.jpg" alt="StayCurious Queen of Hearts metal cards"></div>
-      <div class="carousel-slide"><img src="images/IMG_0055.jpg" alt="StayCurious blind box mailer with butterflies"></div>
-      <div class="carousel-slide"><img src="images/IMG_1395.JPG" alt="Spill the OntoloTea backdrop activation"></div>
-      <div class="carousel-slide"><img src="images/IMG_4161__1_.jpeg" alt="Cherre branded keychains and swag at NYC kiosk"></div>
-      <div class="carousel-slide"><img src="images/IMG_9515.jpeg" alt="Queen of Hearts artwork in gold frame at booth"></div>
-    </div>
-    <div class="carousel-nav prev" id="carPrev">&lsaquo;</div>
-    <div class="carousel-nav next" id="carNext">&rsaquo;</div>
+  <div class="section-title">Lineage, Legacy, Consistency</div>
+  <div class="section-sub">Every activation was designed around a three-part philosophy: <strong>Lineage</strong> -- executive visibility that earns the stage; <strong>Legacy</strong> -- experiences that outlast the event; and <strong>Consistency</strong> -- showing up with presence year after year. Click into each event to see the story in frame.</div>
+
+  <div class="act-tabs">
+    <div class="act-tab active" data-event="retcon">RETCON</div>
+    <div class="act-tab" data-event="realcomm">Realcomm</div>
+    <div class="act-tab" data-event="cretech">CREtech</div>
+    <div class="act-tab" data-event="nmhc">NMHC / OPTECH</div>
   </div>
-  <div class="carousel-dots" id="carDots"></div>
+
+  <div class="act-panel active" id="panel-retcon">
+    <div class="act-carousel-wrap">
+      <div class="act-carousel-track">
+        <div class="act-slide">
+          <img src="images/retcon-lineage-margaretspeaking.jpg" alt="Margaret speaking at RETCON">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre Chief Client Officer, Margaret Guelzow, on stage at RETCON</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/retcon-legacy-cardunveil.png" alt="StayCurious card unveil at RETCON">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>#StayCurious playing card unveil -- the guerrilla drop that launched the Full House collector series at RETCON</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/retcon-consistency-spillthetea.jpg" alt="Spill the OntoloTea Data Mart at RETCON">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>Spill the OntoloTea -- a walk-in speakeasy hidden inside the Cherre Data Mart at RETCON 2026</div>
+        </div>
+      </div>
+      <div class="act-nav act-prev">&lsaquo;</div>
+      <div class="act-nav act-next">&rsaquo;</div>
+    </div>
+    <div class="act-dots"></div>
+  </div>
+
+  <div class="act-panel" id="panel-realcomm">
+    <div class="act-carousel-wrap">
+      <div class="act-carousel-track">
+        <div class="act-slide">
+          <img src="images/realcomm-lineage-ldspeaking.jpg" alt="LD speaking at Realcomm">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre CEO and Co-Founder, L.D. Salmanson, speaking at Realcomm 2025</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-lineage-tamaspeaking.jpg" alt="Tama speaking at Realcomm">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre Chief Strategy Officer, Tama Huang, presenting at Realcomm 2025</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-lineage-tylerspeaking.jpg" alt="Tyler speaking at Realcomm">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre Chief Growth Officer, Tyler Christensen, on the Realcomm 2025 stage</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-legacy-savannahvip.jpg" alt="Savannah VIP event">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>Cherre-hosted VIP dinner in Savannah -- an invite-only gathering for senior industry leaders at Realcomm 2026</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-legacy-realtalk2024.jpg" alt="RealTalk 2024">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>RealTalk 2024 -- Cherre-produced thought leadership series bringing together C-suite voices at Realcomm</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-legacy-digie.jpg" alt="Digie Award">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>Cherre recognized with the Digie Award for innovation excellence at Realcomm</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-consistency-booth2024.jpg" alt="Realcomm booth 2024">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>Cherre booth presence at Realcomm 2024 -- three consecutive years as a headline sponsor</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-consistency-2026sketch.png" alt="2026 booth concept sketch">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>Realcomm 2026 booth concept sketch -- evolving the activation design year over year</div>
+        </div>
+      </div>
+      <div class="act-nav act-prev">&lsaquo;</div>
+      <div class="act-nav act-next">&rsaquo;</div>
+    </div>
+    <div class="act-dots"></div>
+  </div>
+
+  <div class="act-panel" id="panel-cretech">
+    <div class="act-carousel-wrap">
+      <div class="act-carousel-track">
+        <div class="act-slide">
+          <img src="images/cretech-lineage-ldkeynote2024.jpg" alt="LD Keynote CREtech 2024">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre CEO and Co-Founder, L.D. Salmanson, delivering the keynote at CREtech 2024</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/cretech-lineage-ldkeynote2025.png" alt="LD Keynote CREtech 2025">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>L.D. Salmanson returns to the CREtech keynote stage in 2025 -- back-to-back years</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/cretech-legacy-agentstudio.jpg" alt="Agent Studio meeting room">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>The Agent Studio speakeasy meeting room -- a branded VIP experience at CREtech for product demos and executive conversations</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/cretech-consistency-vipevent.jpg" alt="CREtech VIP Event">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>Cherre-hosted VIP event at CREtech -- a curated evening for top-tier prospects and partners</div>
+        </div>
+      </div>
+      <div class="act-nav act-prev">&lsaquo;</div>
+      <div class="act-nav act-next">&rsaquo;</div>
+    </div>
+    <div class="act-dots"></div>
+  </div>
+
+  <div class="act-panel" id="panel-nmhc">
+    <div class="act-carousel-wrap">
+      <div class="act-carousel-track">
+        <div class="act-slide">
+          <img src="images/nmhc-lineage-tama.jpg" alt="Tama speaking at NMHC">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre Chief Strategy Officer, Tama Huang, speaking on the Invest in Innovation panel at NMHC OPTECH</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/nmhc-legacy-mits.png" alt="MITS Standard">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>Cherre co-authoring the MITS data standard -- establishing industry-level credibility through standards leadership at NMHC</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/gtm-datamart.jpg" alt="OPTECH Data Mart booth">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>The Cherre Data Mart grocery store booth at OPTECH -- turning data ontology into a tactile, walk-through experience</div>
+        </div>
+      </div>
+      <div class="act-nav act-prev">&lsaquo;</div>
+      <div class="act-nav act-next">&rsaquo;</div>
+    </div>
+    <div class="act-dots"></div>
+  </div>
 </section>
 
 <!-- CLOSING -->
 <section class="section" id="closing">
   <div class="kicker">The Position</div>
+  <div class="section-title">Why the room keeps filling</div>
   <div class="closing-body">Most enterprise software companies have a brand. Few have a commercial position. Cherre has both.</div>
   <div class="closing-body">The position is not abstract. It is the reason the meeting rooms fill, the receptions sell out, the same senior buyers keep coming back, and successors join the conversation when they are promoted. The evidence in this deck is the receipt. The receipt is also, in another reading, the verdict.</div>
   <div class="closing-body">Cherre coming into RealPage is not a customer list. It is a commercial position in institutional real assets, built deliberately over three years on a decade of technical credibility, validated by who keeps showing up, and demonstrated by a pipeline that converts. The motion is built. Scaling it is the work that comes next.</div>
@@ -940,27 +989,44 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-  // Carousel
-  var track = document.getElementById('carouselTrack');
-  var slides = track ? track.querySelectorAll('.carousel-slide') : [];
-  var dotsWrap = document.getElementById('carDots');
-  var curSlide = 0;
-  function goTo(n) {
-    curSlide = (n + slides.length) % slides.length;
-    track.style.transform = 'translateX(-' + (curSlide * 100) + '%)';
-    var dots = dotsWrap.querySelectorAll('.carousel-dot');
-    dots.forEach(function(d, i){ d.classList.toggle('active', i === curSlide); });
-  }
-  if (slides.length > 0) {
-    slides.forEach(function(_, i){
-      var dot = document.createElement('div');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', function(){ goTo(i); });
-      dotsWrap.appendChild(dot);
+  // Activation event tabs
+  document.querySelectorAll('.act-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.act-tab').forEach(function(t){ t.classList.remove('active'); });
+      document.querySelectorAll('.act-panel').forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      var panel = document.getElementById('panel-' + tab.getAttribute('data-event'));
+      if (panel) {
+        panel.classList.add('active');
+        var track = panel.querySelector('.act-carousel-track');
+        if (track) track.style.transform = 'translateX(0%)';
+        panel.querySelectorAll('.act-dot').forEach(function(d,i){ d.classList.toggle('active', i===0); });
+      }
     });
-    document.getElementById('carPrev').addEventListener('click', function(){ goTo(curSlide - 1); });
-    document.getElementById('carNext').addEventListener('click', function(){ goTo(curSlide + 1); });
-  }
+  });
+
+  // Activation carousels (per-panel)
+  document.querySelectorAll('.act-panel').forEach(function(panel){
+    var track = panel.querySelector('.act-carousel-track');
+    var slides = track ? track.querySelectorAll('.act-slide') : [];
+    var dotsWrap = panel.querySelector('.act-dots');
+    var cur = 0;
+    function go(n){
+      cur = (n + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      dotsWrap.querySelectorAll('.act-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
+    }
+    if (slides.length > 0) {
+      slides.forEach(function(_,i){
+        var dot = document.createElement('div');
+        dot.className = 'act-dot' + (i===0 ? ' active' : '');
+        dot.addEventListener('click', function(){ go(i); });
+        dotsWrap.appendChild(dot);
+      });
+      panel.querySelector('.act-prev').addEventListener('click', function(){ go(cur-1); });
+      panel.querySelector('.act-next').addEventListener('click', function(){ go(cur+1); });
+    }
+  });
 
   // Room modal: load people data, render table, support search + sort
   var peopleScript = document.getElementById('roomPeopleData');
