@@ -182,7 +182,7 @@ nav{display:flex;overflow-x:auto}
 .carousel-dot.active{background:var(--ch);border-color:var(--ch)}
 
 /* pipeline section */
-.pipe-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px}
+.pipe-hero{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:32px}
 .pipe-stat{padding:18px 20px;border:1px solid var(--bd);background:var(--wh)}
 .pipe-stat.lead{border-top:2px solid var(--ch)}
 .pipe-stat.gold{border-top:2px solid var(--go)}
@@ -243,7 +243,7 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
   .cal-year{min-width:0}
   .mtg-list{grid-template-columns:1fr}
   .rel-grid{grid-template-columns:1fr}
-  .cover-stats,.cal-stats,.yoy{grid-template-columns:1fr}
+  .cover-stats,.cal-stats,.yoy,.pipe-hero{grid-template-columns:1fr}
   .carousel-slide img{max-height:320px}
   .acc-head{grid-template-columns:60px 1fr auto}
   .nm-row{grid-template-columns:1fr;gap:2px}
@@ -779,7 +779,12 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
     <div class="pipe-stat gold">
       <div class="lbl">Contract Out Bookings</div>
       <div class="val">$3.65M</div>
-      <div class="sub">Total bookings (ARR + NRR) across deals already sent for signature. Commit-stage.</div>
+      <div class="sub">ARR + NRR across deals already sent for signature. Commit-stage.</div>
+    </div>
+    <div class="pipe-stat gold">
+      <div class="lbl">Demo Stage ARR</div>
+      <div class="val">$8.56M</div>
+      <div class="sub">84 active deals in Demo stage across Q2&ndash;Q4 FY2026.</div>
     </div>
     <div class="pipe-stat">
       <div class="lbl">Sellers who built this</div>
@@ -1044,9 +1049,28 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
 
   </div>
 
+  <div class="pipe-stage-label" style="color:var(--tx2);border-color:var(--bd);margin-top:32px">Demo Stage &mdash; Full Funnel</div>
+  <div class="pipe-hero" style="grid-template-columns:repeat(3,1fr);margin-bottom:0">
+    <div class="pipe-stat gold">
+      <div class="lbl">Demo Pipeline ARR</div>
+      <div class="val">$8.56M</div>
+      <div class="sub">Qualified ARR across 69 deals with identified pricing in the Demo stage.</div>
+    </div>
+    <div class="pipe-stat">
+      <div class="lbl">Total Deals in Demo</div>
+      <div class="val">84</div>
+      <div class="sub">84 active deals across Q2&ndash;Q4 FY2026. 78 new business, 6 upsell.</div>
+    </div>
+    <div class="pipe-stat">
+      <div class="lbl">Pipeline TCV</div>
+      <div class="val">$9.2M</div>
+      <div class="sub">Total contract value across the Demo stage including multi-year and expansion components.</div>
+    </div>
+  </div>
+
   <div class="scale-statement">
-    <p>The deals in contract out span a sovereign wealth fund, global fund administrators, and existing clients expanding their footprint. The BANT bench &mdash; Ontario Teachers&rsquo;, New York Life, ICG, and others &mdash; represents the institutional capital segment this product was built to serve.</p>
-    <p>The motion is proven and the pipeline is active. Backed by RealPage&rsquo;s resources, network, and go-to-market infrastructure, this team is ready to scale what it has already built.</p>
+    <p>Behind the contract-out and BANT stages sits a Demo pipeline of 84 active deals with $8.56M in qualified ARR &mdash; across sovereign wealth funds, pension funds, global asset managers, REITs, and service providers. The funnel is full and the segment is proven.</p>
+    <p>This is what three sellers built. The motion is established, the ICP is validated, and the relationships are warm. Backed by RealPage&rsquo;s resources, network, and go-to-market infrastructure, this team is ready to scale what it has already built.</p>
   </div>
 
 </section>
