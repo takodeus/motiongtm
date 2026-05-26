@@ -215,6 +215,31 @@ nav{display:flex;overflow-x:auto}
 footer{margin-top:40px;padding:20px 0;border-top:1px solid var(--bd);display:flex;justify-content:space-between}
 footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
 
+
+/* activation tabs + carousels */
+.act-tabs{display:flex;gap:0;border-bottom:2px solid var(--bd);margin-bottom:0}
+.act-tab{padding:12px 24px;font-size:12px;letter-spacing:.08em;color:var(--tx3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;font-weight:500}
+.act-tab:hover{color:var(--tx)}
+.act-tab.active{color:var(--ch);border-bottom-color:var(--ch)}
+.act-panel{display:none}
+.act-panel.active{display:block}
+.act-carousel-wrap{position:relative;overflow:hidden;margin-top:0;border:1px solid var(--bd);border-top:none;background:var(--wh)}
+.act-carousel-track{display:flex;transition:transform .4s ease}
+.act-slide{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;padding:24px 20px 16px}
+.act-slide img{max-width:100%;max-height:480px;object-fit:contain;border-radius:2px}
+.act-slide-label{margin-top:12px;font-size:13px;color:var(--tx2);text-align:center;line-height:1.5}
+.act-tag{display:inline-block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:2px 8px;margin-right:8px;border-radius:2px;vertical-align:middle}
+.act-tag.lineage{background:var(--ch-bg);color:var(--ch-dim)}
+.act-tag.legacy{background:var(--go-bg);color:var(--go-dim)}
+.act-tag.consistency{background:var(--aq-bg);color:var(--aq-dim)}
+.act-nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border:1px solid var(--bd);background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--tx2);transition:background .15s,border-color .15s;z-index:2}
+.act-nav:hover{background:var(--ch-bg);border-color:var(--ch-bd);color:var(--ch)}
+.act-prev{left:12px}
+.act-next{right:12px}
+.act-dots{display:flex;justify-content:center;gap:8px;padding:14px 0}
+.act-dot{width:8px;height:8px;border-radius:50%;border:1px solid var(--bd);background:transparent;cursor:pointer;transition:all .15s}
+.act-dot.active{background:var(--ch);border-color:var(--ch)}
+
 @media (max-width:768px){
   .cal-item{grid-template-columns:1fr;gap:10px}
   .cal-years{flex-direction:column}
@@ -223,6 +248,7 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
   .room-stats{grid-template-columns:1fr 1fr}
   .gtm-boxes{grid-template-columns:1fr}
   .carousel-slide img{max-height:320px}
+  .act-tab{padding:10px 14px;font-size:11px}
   .room-table th,.room-table td{padding:9px 12px}
   .room-modal{padding:20px 10px}
   .room-modal-panel{max-height:calc(100vh - 40px)}
@@ -821,24 +847,130 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
   </div>
 </section>
 
-<!-- LIGHTBOX CAROUSEL -->
+<!-- ACTIVATIONS -->
 <section class="section" id="gallery">
-  <div class="kicker">Campaign Gallery</div>
-  <div class="section-title">The activations in frame</div>
-  <div class="carousel-wrap" id="imgCarousel">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide"><img src="images/IMG_4174.jpeg" alt="Cherre booth activation - conference crowd"></div>
-      <div class="carousel-slide"><img src="images/IMG_5157__1_.PNG" alt="Cherre Data Mart grocery store booth"></div>
-      <div class="carousel-slide"><img src="images/IMG_0056.jpg" alt="StayCurious Queen of Hearts metal cards"></div>
-      <div class="carousel-slide"><img src="images/IMG_0055.jpg" alt="StayCurious blind box mailer with butterflies"></div>
-      <div class="carousel-slide"><img src="images/IMG_1395.JPG" alt="Spill the OntoloTea backdrop activation"></div>
-      <div class="carousel-slide"><img src="images/IMG_4161__1_.jpeg" alt="Cherre branded keychains and swag at NYC kiosk"></div>
-      <div class="carousel-slide"><img src="images/IMG_9515.jpeg" alt="Queen of Hearts artwork in gold frame at booth"></div>
-    </div>
-    <div class="carousel-nav prev" id="carPrev">&lsaquo;</div>
-    <div class="carousel-nav next" id="carNext">&rsaquo;</div>
+  <div class="kicker">The Activations</div>
+  <div class="section-title">Lineage, Legacy, Consistency</div>
+  <div class="section-sub">Every activation was designed around a three-part philosophy: <strong>Lineage</strong> -- executive visibility that earns the stage; <strong>Legacy</strong> -- experiences that outlast the event; and <strong>Consistency</strong> -- showing up with presence year after year. Click into each event to see the story in frame.</div>
+
+  <div class="act-tabs">
+    <div class="act-tab active" data-event="retcon">RETCON</div>
+    <div class="act-tab" data-event="realcomm">Realcomm</div>
+    <div class="act-tab" data-event="cretech">CREtech</div>
+    <div class="act-tab" data-event="nmhc">NMHC / OPTECH</div>
   </div>
-  <div class="carousel-dots" id="carDots"></div>
+
+  <div class="act-panel active" id="panel-retcon">
+    <div class="act-carousel-wrap">
+      <div class="act-carousel-track">
+        <div class="act-slide">
+          <img src="images/retcon-lineage-margaretspeaking.jpg" alt="Margaret speaking at RETCON">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre Chief Client Officer, Margaret Guelzow, on stage at RETCON</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/retcon-legacy-cardunveil.png" alt="StayCurious card unveil at RETCON">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>#StayCurious playing card unveil -- the guerrilla drop that launched the Full House collector series at RETCON</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/retcon-consistency-spillthetea.jpg" alt="Spill the OntoloTea Data Mart at RETCON">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>Spill the OntoloTea -- a walk-in speakeasy hidden inside the Cherre Data Mart at RETCON 2026</div>
+        </div>
+      </div>
+      <div class="act-nav act-prev">&lsaquo;</div>
+      <div class="act-nav act-next">&rsaquo;</div>
+    </div>
+    <div class="act-dots"></div>
+  </div>
+
+  <div class="act-panel" id="panel-realcomm">
+    <div class="act-carousel-wrap">
+      <div class="act-carousel-track">
+        <div class="act-slide">
+          <img src="images/realcomm-lineage-ldspeaking.jpg" alt="LD speaking at Realcomm">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre CEO and Co-Founder, L.D. Salmanson, speaking at Realcomm 2025</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-lineage-tamaspeaking.jpg" alt="Tama speaking at Realcomm">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre Chief Strategy Officer, Tama Huang, presenting at Realcomm 2025</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-lineage-tylerspeaking.jpg" alt="Tyler speaking at Realcomm">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre Chief Growth Officer, Tyler Christensen, on the Realcomm 2025 stage</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-legacy-savannahvip.jpg" alt="Savannah VIP event">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>Cherre-hosted VIP dinner in Savannah -- an invite-only gathering for senior industry leaders at Realcomm 2026</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-legacy-realtalk2024.jpg" alt="RealTalk 2024">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>RealTalk 2024 -- Cherre-produced thought leadership series bringing together C-suite voices at Realcomm</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-legacy-digie.jpg" alt="Digie Award">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>Cherre recognized with the Digie Award for innovation excellence at Realcomm</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-consistency-booth2024.jpg" alt="Realcomm booth 2024">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>Cherre booth presence at Realcomm 2024 -- three consecutive years as a headline sponsor</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/realcomm-consistency-2026sketch.png" alt="2026 booth concept sketch">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>Realcomm 2026 booth concept sketch -- evolving the activation design year over year</div>
+        </div>
+      </div>
+      <div class="act-nav act-prev">&lsaquo;</div>
+      <div class="act-nav act-next">&rsaquo;</div>
+    </div>
+    <div class="act-dots"></div>
+  </div>
+
+  <div class="act-panel" id="panel-cretech">
+    <div class="act-carousel-wrap">
+      <div class="act-carousel-track">
+        <div class="act-slide">
+          <img src="images/cretech-lineage-ldkeynote2024.jpg" alt="LD Keynote CREtech 2024">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre CEO and Co-Founder, L.D. Salmanson, delivering the keynote at CREtech 2024</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/cretech-lineage-ldkeynote2025.png" alt="LD Keynote CREtech 2025">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>L.D. Salmanson returns to the CREtech keynote stage in 2025 -- back-to-back years</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/cretech-legacy-agentstudio.jpg" alt="Agent Studio meeting room">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>The Agent Studio speakeasy meeting room -- a branded VIP experience at CREtech for product demos and executive conversations</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/cretech-consistency-vipevent.jpg" alt="CREtech VIP Event">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>Cherre-hosted VIP event at CREtech -- a curated evening for top-tier prospects and partners</div>
+        </div>
+      </div>
+      <div class="act-nav act-prev">&lsaquo;</div>
+      <div class="act-nav act-next">&rsaquo;</div>
+    </div>
+    <div class="act-dots"></div>
+  </div>
+
+  <div class="act-panel" id="panel-nmhc">
+    <div class="act-carousel-wrap">
+      <div class="act-carousel-track">
+        <div class="act-slide">
+          <img src="images/nmhc-lineage-tama.jpg" alt="Tama speaking at NMHC">
+          <div class="act-slide-label"><span class="act-tag lineage">Lineage</span>Cherre Chief Strategy Officer, Tama Huang, speaking on the Invest in Innovation panel at NMHC OPTECH</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/nmhc-legacy-mits.png" alt="MITS Standard">
+          <div class="act-slide-label"><span class="act-tag legacy">Legacy</span>Cherre co-authoring the MITS data standard -- establishing industry-level credibility through standards leadership at NMHC</div>
+        </div>
+        <div class="act-slide">
+          <img src="images/gtm-datamart.jpg" alt="OPTECH Data Mart booth">
+          <div class="act-slide-label"><span class="act-tag consistency">Consistency</span>The Cherre Data Mart grocery store booth at OPTECH -- turning data ontology into a tactile, walk-through experience</div>
+        </div>
+      </div>
+      <div class="act-nav act-prev">&lsaquo;</div>
+      <div class="act-nav act-next">&rsaquo;</div>
+    </div>
+    <div class="act-dots"></div>
+  </div>
 </section>
 
 <!-- CLOSING -->
@@ -857,27 +989,44 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-  // Carousel
-  var track = document.getElementById('carouselTrack');
-  var slides = track ? track.querySelectorAll('.carousel-slide') : [];
-  var dotsWrap = document.getElementById('carDots');
-  var curSlide = 0;
-  function goTo(n) {
-    curSlide = (n + slides.length) % slides.length;
-    track.style.transform = 'translateX(-' + (curSlide * 100) + '%)';
-    var dots = dotsWrap.querySelectorAll('.carousel-dot');
-    dots.forEach(function(d, i){ d.classList.toggle('active', i === curSlide); });
-  }
-  if (slides.length > 0) {
-    slides.forEach(function(_, i){
-      var dot = document.createElement('div');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', function(){ goTo(i); });
-      dotsWrap.appendChild(dot);
+  // Activation event tabs
+  document.querySelectorAll('.act-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.act-tab').forEach(function(t){ t.classList.remove('active'); });
+      document.querySelectorAll('.act-panel').forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      var panel = document.getElementById('panel-' + tab.getAttribute('data-event'));
+      if (panel) {
+        panel.classList.add('active');
+        var track = panel.querySelector('.act-carousel-track');
+        if (track) track.style.transform = 'translateX(0%)';
+        panel.querySelectorAll('.act-dot').forEach(function(d,i){ d.classList.toggle('active', i===0); });
+      }
     });
-    document.getElementById('carPrev').addEventListener('click', function(){ goTo(curSlide - 1); });
-    document.getElementById('carNext').addEventListener('click', function(){ goTo(curSlide + 1); });
-  }
+  });
+
+  // Activation carousels (per-panel)
+  document.querySelectorAll('.act-panel').forEach(function(panel){
+    var track = panel.querySelector('.act-carousel-track');
+    var slides = track ? track.querySelectorAll('.act-slide') : [];
+    var dotsWrap = panel.querySelector('.act-dots');
+    var cur = 0;
+    function go(n){
+      cur = (n + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      dotsWrap.querySelectorAll('.act-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
+    }
+    if (slides.length > 0) {
+      slides.forEach(function(_,i){
+        var dot = document.createElement('div');
+        dot.className = 'act-dot' + (i===0 ? ' active' : '');
+        dot.addEventListener('click', function(){ go(i); });
+        dotsWrap.appendChild(dot);
+      });
+      panel.querySelector('.act-prev').addEventListener('click', function(){ go(cur-1); });
+      panel.querySelector('.act-next').addEventListener('click', function(){ go(cur+1); });
+    }
+  });
 
   // Room modal: load people data, render table, support search + sort
   var peopleScript = document.getElementById('roomPeopleData');
