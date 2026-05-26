@@ -190,7 +190,22 @@ nav{display:flex;overflow-x:auto}
 .pipe-stat .val{font-family:var(--f);font-size:36px;font-weight:300;color:var(--ch-dim);line-height:1}
 .pipe-stat.gold .val{color:var(--go-dim)}
 .pipe-stat .sub{font-size:12px;color:var(--tx3);margin-top:6px;line-height:1.55}
-.pipe-context{font-size:14px;color:var(--tx2);line-height:1.8;font-weight:300;max-width:860px;margin-bottom:32px}
+.closed-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px}
+.closed-card{padding:14px 18px;background:var(--wh);border:1px solid var(--bd);border-left:2px solid var(--tx4);display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start}
+.closed-card.new-logo{border-left-color:var(--ch)}
+.closed-card.upsell{border-left-color:var(--go-bd)}
+.closed-co{font-size:13.5px;font-weight:500;color:var(--tx);line-height:1.3}
+.closed-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;align-items:center}
+.closed-date{font-size:10px;letter-spacing:.08em;color:var(--tx3)}
+.closed-type{font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--bdl)}
+.closed-type.new{color:var(--ch-dim);border-color:var(--ch-bd);background:var(--ch-bg)}
+.closed-type.upsell{color:var(--go-dim);border-color:var(--go-bd);background:var(--go-bg)}
+.closed-type.escalator{color:var(--tx3);border-color:var(--bdl)}
+.closed-arr{font-family:var(--f);font-size:18px;font-weight:300;color:var(--tx2);white-space:nowrap;text-align:right}
+.closed-owner{font-size:10px;color:var(--tx3);text-align:right;margin-top:2px}
+.closed-total{display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px;background:var(--wh);border:1px solid var(--bd);border-top:2px solid var(--tx);margin-bottom:32px}
+.closed-total .lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx2);font-weight:500}
+.closed-total .val{font-family:var(--f);font-size:28px;font-weight:300;color:var(--tx)}
 .pipe-stage-label{font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--bdl)}
 .pipe-stage-label.contract{color:var(--aq-dim)}
 .pipe-stage-label.bant{color:var(--go-dim)}
@@ -752,19 +767,19 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
 
   <div class="pipe-hero">
     <div class="pipe-stat lead">
-      <div class="lbl">Contract Out Bookings</div>
-      <div class="val">$3.65M</div>
-      <div class="sub">Total bookings (ARR + NRR) across deals already sent for signature. Commit-stage. Closing Q2&ndash;Q3 FY2026.</div>
+      <div class="lbl">Q1 Closed ARR</div>
+      <div class="val">$1.04M</div>
+      <div class="sub">12 deals closed Jan&ndash;Mar 2026. New logos and upsells across institutional real estate.</div>
     </div>
     <div class="pipe-stat lead">
-      <div class="lbl">Total Contract Value (Out)</div>
-      <div class="val">$10.7M</div>
-      <div class="sub">Total contract value across the contract-out stage, including multi-year and expansion components.</div>
+      <div class="lbl">Q2 Closed ARR (to date)</div>
+      <div class="val">$693K</div>
+      <div class="sub">7 deals closed Apr 1&ndash;May 25. 36 days remaining in Q2.</div>
     </div>
     <div class="pipe-stat gold">
-      <div class="lbl">BANT Pipeline Bookings</div>
-      <div class="val">$491K</div>
-      <div class="sub">Qualified BANT-stage bookings across named institutional targets. Budget confirmed, decision authority identified.</div>
+      <div class="lbl">Contract Out Bookings</div>
+      <div class="val">$3.65M</div>
+      <div class="sub">Total bookings (ARR + NRR) across deals already sent for signature. Commit-stage.</div>
     </div>
     <div class="pipe-stat">
       <div class="lbl">Sellers who built this</div>
@@ -774,6 +789,114 @@ footer span{font-size:10px;letter-spacing:.1em;color:var(--tx4)}
   </div>
 
   <div class="pipe-context">Three sellers built this pipeline. The ICP is validated, the message lands, and the relationships are established across sovereign wealth funds, pension funds, global asset managers, and fund administrators. That is the hard part. With RealPage&rsquo;s infrastructure, brand, and sales capacity behind it, Cherre&rsquo;s commercial team is positioned to accelerate significantly from this foundation.</div>
+
+  <div class="pipe-stage-label contract" style="color:var(--tx2);border-color:var(--bd)">Q1 FY2026 &mdash; Closed Won &nbsp;&middot;&nbsp; Jan 1 &ndash; Mar 31</div>
+  <div class="closed-grid">
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">Alter Domus</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">Feb 16, 2026</span></div></div>
+      <div><div class="closed-arr">$403,039</div><div class="closed-owner">Grant Wood</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">Savills Investment Management</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">Jan 23, 2026</span></div></div>
+      <div><div class="closed-arr">$314,000</div><div class="closed-owner">Bhrvinder Gill</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">AlphaMap</div><div class="closed-meta"><span class="closed-type upsell">Upsell</span><span class="closed-date">Jan 23, 2026</span></div></div>
+      <div><div class="closed-arr">$69,000</div><div class="closed-owner">Grant Wood</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">Archipelago</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">Jan 31, 2026</span></div></div>
+      <div><div class="closed-arr">$48,000</div><div class="closed-owner">Bhrvinder Gill</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">CompStak</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">Feb 27, 2026</span></div></div>
+      <div><div class="closed-arr">$39,000</div><div class="closed-owner">Patrick Binette</div></div>
+    </div>
+
+    <div class="closed-card upsell">
+      <div><div class="closed-co">Ontario Teachers&rsquo; Pension Plan</div><div class="closed-meta"><span class="closed-type upsell">Upsell</span><span class="closed-date">Feb 28, 2026</span></div></div>
+      <div><div class="closed-arr">$36,000</div><div class="closed-owner">Jason Klein</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">Farbman Group</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">Mar 31, 2026</span></div></div>
+      <div><div class="closed-arr">$32,500</div><div class="closed-owner">Bhrvinder Gill</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">Bowery Valuation</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">Feb 5, 2026</span></div></div>
+      <div><div class="closed-arr">$30,000</div><div class="closed-owner">Jason Klein</div></div>
+    </div>
+
+    <div class="closed-card upsell">
+      <div><div class="closed-co">Altrio</div><div class="closed-meta"><span class="closed-type escalator">Price Escalator</span><span class="closed-date">Jan 23, 2026</span></div></div>
+      <div><div class="closed-arr">$24,000</div><div class="closed-owner">Grant Wood</div></div>
+    </div>
+
+    <div class="closed-card upsell">
+      <div><div class="closed-co">Key Data Dashboard (x2)</div><div class="closed-meta"><span class="closed-type upsell">Upsell</span><span class="closed-date">Feb &ndash; Mar 2026</span></div></div>
+      <div><div class="closed-arr">$33,000</div><div class="closed-owner">Bhrvinder Gill</div></div>
+    </div>
+
+    <div class="closed-card upsell">
+      <div><div class="closed-co">Green Courte Partners</div><div class="closed-meta"><span class="closed-type upsell">Upsell</span><span class="closed-date">Feb 26, 2026</span></div></div>
+      <div><div class="closed-arr">$12,000</div><div class="closed-owner">Jason Klein</div></div>
+    </div>
+
+  </div>
+  <div class="closed-total">
+    <span class="lbl">Q1 FY2026 Total ARR</span>
+    <span class="val">$1,040,539</span>
+  </div>
+
+  <div class="pipe-stage-label contract" style="color:var(--tx2);border-color:var(--bd)">Q2 FY2026 &mdash; Closed Won &nbsp;&middot;&nbsp; Apr 1 &ndash; May 25 (to date)</div>
+  <div class="closed-grid">
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">Essential Properties Realty Trust</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">May 15, 2026</span></div></div>
+      <div><div class="closed-arr">$304,500</div><div class="closed-owner">Bhrvinder Gill</div></div>
+    </div>
+
+    <div class="closed-card upsell">
+      <div><div class="closed-co">DWS</div><div class="closed-meta"><span class="closed-type upsell">Upsell</span><span class="closed-date">Apr 30, 2026</span></div></div>
+      <div><div class="closed-arr">$119,000</div><div class="closed-owner">Grant Wood</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">NorthMarq</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">May 15, 2026</span></div></div>
+      <div><div class="closed-arr">$96,000</div><div class="closed-owner">Jason Klein</div></div>
+    </div>
+
+    <div class="closed-card upsell">
+      <div><div class="closed-co">Savills Investment Management</div><div class="closed-meta"><span class="closed-type upsell">Upsell</span><span class="closed-date">May 14, 2026</span></div></div>
+      <div><div class="closed-arr">$58,140</div><div class="closed-owner">Bhrvinder Gill</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">Broker Public Portal</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">May 8, 2026</span></div></div>
+      <div><div class="closed-arr">$55,000</div><div class="closed-owner">Patrick Binette</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">Woolbright Development</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">May 7, 2026</span></div></div>
+      <div><div class="closed-arr">$48,000</div><div class="closed-owner">Bhrvinder Gill</div></div>
+    </div>
+
+    <div class="closed-card new-logo">
+      <div><div class="closed-co">Vistra</div><div class="closed-meta"><span class="closed-type new">New</span><span class="closed-date">May 8, 2026</span></div></div>
+      <div><div class="closed-arr">$12,500</div><div class="closed-owner">Bhrvinder Gill</div></div>
+    </div>
+
+  </div>
+  <div class="closed-total">
+    <span class="lbl">Q2 FY2026 ARR to date &nbsp;&middot;&nbsp; 36 days remaining</span>
+    <span class="val">$693,140</span>
+  </div>
 
   <div class="pipe-stage-label contract">Contract Out &mdash; Selected Highlights</div>
   <div class="pipe-deals">
